@@ -378,3 +378,152 @@ INSERT INTO clientes (cedula, nombres, apellidos, email, telefono, fecha_nacimie
 ('1023456828', 'Carlos', 'Mendoza', 'carlos.mendoza@example.com', '3111234562', '1992-09-19'),
 ('1023456829', 'Santiago', 'Marín', 'santiago.marin@example.com', '3112345675', '1987-01-11'),
 ('1023456830', 'Claudia', 'Figueroa', 'claudia.figueroa@example.com', '3113456783', '1993-04-25');
+
+INSERT INTO usuarios(correo, contraseña) VALUES
+('juanito12@gmail.com', 'cucarachasunidas'), -- 1
+('beatrizOrtiz@gmail.com', 'contraseña123'), -- 2
+('dxniel7328@gmail.com', 'Yosoyslerdenman2'), -- 3
+('joseTinieblo@gmail.com', 'pepe331'), -- 4
+('maicolmaluma@gmail.com', 'pritiboy45'), -- 5
+('jessejoy@gmail.com', 'ladelamalasuerte22'), -- 6
+('juanobanano@gmail.com', 'amoelfulvo'), -- 7
+('juanito13@gmail.com', 'jamasvencidas'), -- 8
+('julianbellaco@gmail.com', 'taylor1313'), -- 9
+('arjona@gmail.com', 'fuistetudaniel'), -- 10
+('marianapelirroja@gmail.com', 'amohombrescasados'), -- 11
+('adrian2873@gmail.com', 'amoastefa15'), -- 12
+('alberto@gmail.com', 'contraseña111'), -- 13
+('rosamelano@gmail.com', 'qpongoaki'), -- 14
+('luiscalvo@gmail.com', 'Yosoybatman3'), -- 15
+('anagabriel@gmail.com', 'noqroqseamosamigos'), -- 16
+('stefanyyy15@gmail.com', 'losodioatodos'), -- 17
+('sofiachar@gmail.com', 'descendientestamo'), -- 18
+('andreagomela@gmail.com', 'lokitajeje'), -- 19 
+('jesus@gmail.com', "losamo"), -- 20
+('michelleDayana@gmail.com', "3amamuerte"), -- 21
+('esteban22@gmail.com', 'contraseñadificil'), -- 22
+('camilacabello@gmail.com', 'solocriticasybesos'), -- 23
+('lorettamartinez@gmail.com', 'vivaelamor'), -- 24
+('pablitoperez@gmail.com', 'todoslosdias'), -- 25
+('anita_nieves@gmail.com', 'risasydiversion'), -- 26
+('juliancito99@gmail.com', 'felicidadplena'), -- 27
+('catalinapinto@gmail.com', 'fiestasytacos'), -- 28
+('ricardo_heroico@gmail.com', 'avengersforever'), -- 29
+('marisol_2023@gmail.com', 'almaslibres'), -- 30
+('fabiola_luna@gmail.com', 'entretenimientotal'), -- 31
+('davidrodriguez@gmail.com', 'amordelbueno'), -- 32
+('elena_gonzalez@gmail.com', 'pasionporlavida'), -- 33
+('albertogarcia@gmail.com', 'chicosinromanticos'), -- 34
+('vanessahart@gmail.com', 'sueñosyrealidad'), -- 35
+('santiagocruz@gmail.com', 'risastotal'), -- 36
+('diana_baez@gmail.com', 'momentosmagicos'), -- 37
+('josephina2023@gmail.com', 'dameunabrazo'), -- 38
+('nicolasalvador@gmail.com', 'caminosabiertos'), -- 39
+('marcelafernandez@gmail.com', 'superalegria'), -- 40
+('antonioquintero@gmail.com', 'somosfamilia'), -- 41
+('claracabrera@gmail.com', 'luzdelmundo'), -- 42
+('ricardoherrera@gmail.com', 'juntosporlavida'), -- 43
+('patricia_diaz@gmail.com', 'sueñoscolorados'), -- 44
+('sergioalonso@gmail.com', 'miaventura2023'), -- 45
+('valentinajimenez@gmail.com', 'mimundomagico'), -- 46
+('jaime_perez@gmail.com', 'felizcomounaava'), -- 47
+('martinrojas@gmail.com', 'luzdetranquilidad'), -- 48
+('adriana_morales@gmail.com', 'unavidaentera'), -- 49
+('luisarmando@gmail.com', 'elcaminodelrey'); -- 50
+;
+
+INSERT INTO ciudades(id, nombre) VALUES
+(1, 'Bogotá'),
+(2, 'Medellín'),
+(3, 'Cali'),
+(4, 'Barranquilla'),
+(5, 'Cartagena'),
+(6, 'Cúcuta'),
+(7, 'Pereira'),
+(8, 'Santa Marta'),
+(9, 'Bucaramanga'),
+(10, 'Manizales'),
+(11, 'Ibagué'),
+(12, 'Tunja'),
+(13, 'Villavicencio'),
+(14, 'Neiva'),
+(15, 'Valledupar'),
+(16, 'Popayán'),
+(17, 'Montería'),
+(18, 'Soledad'),
+(19, 'Sincelejo'),
+(20, 'Armenia'),
+(21, 'Quibdó'),
+(22, 'Leticia'),
+(23, 'Pasto'),
+(24, 'Tibú'),
+(25, 'Yumbo'),
+(26, 'Caldas'),
+(27, 'Girardot'),
+(28, 'Facatativá'),
+(29, 'Riohacha'),
+(30, 'San Andrés'),
+(31, 'Barrancabermeja'),
+(32, 'Chocontá'),
+(33, 'Sogamoso');
+
+INSERT INTO barrios(id, nombre, ciudad_id) VALUES
+(1, 'La Candelaria', 1),
+(2, 'Chapinero', 1),
+(3, 'Usaquén', 1),
+(4, 'Poblado', 2),
+(5, 'Laureles', 2),
+(6, 'Guayabal', 2),
+(7, 'San Fernando', 3),
+(8, 'El Peñón', 3),
+(9, 'Versalles', 3),
+(10, 'Centro', 4),
+(11, 'El Prado', 4),
+(12, 'Manga', 5),
+(13, 'Bocagrande', 5),
+(14, 'La Playa', 6),
+(15, 'San Juan', 6),
+(16, 'El Lago', 7),
+(17, 'Centro', 7),
+(18, 'El Rodadero', 8),
+(19, 'Provenza', 9),
+(20, 'Cabecera', 9),
+(21, 'Morrorico', 9),
+(22, 'El Cable', 10),
+(23, 'La Enea', 10),
+(24, 'La Alborada', 11),
+(25, 'La Pola', 11),
+(26, 'La Candelaria', 12),
+(27, 'El Centro', 12),
+(28, 'La Nueva', 13),
+(29, 'Los Ocarros', 13),
+(30, 'Las Palmas', 14),
+(31, 'El Jardín', 14),
+(32, 'Cerro de Jesús', 15),
+(33, 'El Callejón', 15),
+(34, 'El Centro', 16),
+(35, 'La Esmeralda', 16),
+(36, 'Centro Histórico', 17),
+(37, 'El Viajero', 17),
+(38, 'La Loma', 18),
+(39, 'El Campestre', 18),
+(40, 'Las Mercedes', 19),
+(41, 'El Centro', 19),
+(42, 'El Bosque', 20),
+(43, 'La Tebaida', 20),
+(44, 'Centro', 21),
+(45, 'El Jardín', 21),
+(46, 'La Paz', 22),
+(47, 'Los Ángeles', 22),
+(48, 'La Rosa', 23),
+(49, 'El Llano', 23),
+(50, 'El Trapiche', 24),
+(51, 'Las Palmas', 25),
+(52, 'Los Álamos', 26),
+(53, 'San José', 27),
+(54, 'El Balcón', 28),
+(55, 'Las Flores', 29),
+(56, 'San Luis', 30),
+(57, 'El Trapiche', 31),
+(58, 'El Centro', 32),
+(59, 'Las Vegas', 33);
