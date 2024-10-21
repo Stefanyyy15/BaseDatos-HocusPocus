@@ -1,6 +1,6 @@
-create database if not exists paranormal_store;
+create database if not exists hocus_pocus;
 
-use paranormal_store;
+use hocus_pocus;
 
 create table if not exists categorias_productos(
 	id_categoria int primary key auto_increment,
@@ -126,7 +126,7 @@ create table if not exists barrios(
     foreign key (id_ciudad) references ciudades (id_ciudad)
 );
 
-create table if not exists direcciones(
+create table if not exists direcciones( -- d
     id_direccion int primary key auto_increment,
     id_cliente int not null unique,
     tipo_via enum("carrera", "calle", "diagonal", "transversal", "circular"),
@@ -138,7 +138,7 @@ create table if not exists direcciones(
     foreign key (id_cliente) references clientes (id_cliente)
 );
 
-create table if not exists ventas(
+create table if not exists ventas( -- d
 	id_venta int primary key auto_increment,
     id_cliente int,
     id_empleado int,
@@ -149,7 +149,7 @@ create table if not exists ventas(
     foreign key (id_empleado) references empleados (id_empleado)
 );
 
-create table if not exists ventas_online(
+create table if not exists ventas_online( -- s
 	id_venta_online int primary key auto_increment,
     id_usuario int,
     id_empleado int,
@@ -160,7 +160,7 @@ create table if not exists ventas_online(
     foreign key (id_empleado) references empleados (id_empleado)
 );
 
-create table if not exists detalles_ventas(
+create table if not exists detalles_ventas( -- d
 	id_detalles_ventas int primary key auto_increment,
     id_venta int,
     id_producto int,
@@ -170,7 +170,7 @@ create table if not exists detalles_ventas(
     foreign key (id_producto) references productos (id_producto)
 );
 
-create table if not exists detalles_ventas_online(
+create table if not exists detalles_ventas_online( --s
 	id_detalle_venta_online int primary key auto_increment,
     id_venta_online int,
     id_direccion int,
@@ -178,13 +178,13 @@ create table if not exists detalles_ventas_online(
     foreign key(id_direccion) references direcciones(id_direccion)
 );
 
-create table if not exists tarjetas(
+create table if not exists tarjetas( -- s
 	id_tarjeta int primary key auto_increment,
     tipo_tarjeta enum("credito", "debito", "virtual") not null,
     red_tarjeta enum("visa", "mastercad", "american express")
 );
 
-create table if not exists cliente_tarjeta(
+create table if not exists cliente_tarjeta( -- s
 	id_cliente_tarjet int primary key auto_increment,
     numero_tarjeta varchar(16) not null,
     csv varchar(3) not null,
@@ -196,12 +196,12 @@ create table if not exists cliente_tarjeta(
 );
 
 
-create table if not exists metodos_pago(
+create table if not exists metodos_pago( -- s
 	id_metodo_pago int primary key auto_increment,
     nombre enum ("efectivo", "tarjeta")
 );
 
-create table transacciones (
+create table transacciones ( -- s
     id_transaccion int primary key auto_increment,
     id_venta int,
     id_metodo_pago int,
@@ -211,7 +211,7 @@ create table transacciones (
     foreign key (id_metodo_pago) references metodos_pago(id_metodo_pago)
 );
 
-create table proveedores (
+create table proveedores ( -- d
     id_proveedor int primary key auto_increment,
     nombre_empresa varchar(100) not null,
     contacto varchar(100) not null,
@@ -219,7 +219,7 @@ create table proveedores (
     telefono varchar(20) not null unique
 );
 
-create table ordenes_compra (
+create table ordenes_compra ( -- d
     id_orden_compra int primary key auto_increment,
     id_proveedor int,
     fecha_orden date not null,
@@ -227,7 +227,7 @@ create table ordenes_compra (
     foreign key (id_proveedor) references proveedores(id_proveedor)
 );
 
-create table detalles_ordenes_compra (
+create table detalles_ordenes_compra ( -- d
     id_detalle_orden_compra int primary key auto_increment,
     id_orden_compra int,
     id_producto int,
@@ -238,7 +238,7 @@ create table detalles_ordenes_compra (
     foreign key (id_producto) references productos(id_producto)
 );
 
-create table if not exists alquileres (
+create table if not exists alquileres ( -- s
     id_alquiler int primary key auto_increment,
     id_cliente int,
     id_disfraz int,
@@ -250,7 +250,7 @@ create table if not exists alquileres (
     foreign key (id_disfraz) references disfraces (id_disfraz)
 );
 
-create table if not exists detalles_alquileres (
+create table if not exists detalles_alquileres ( -- s
     id_detalle_alquiler int primary key auto_increment,
     id_alquiler int,
     id_disfraz int,
@@ -260,7 +260,7 @@ create table if not exists detalles_alquileres (
     foreign key (id_disfraz) references disfraces (id_disfraz)
 );
 
-create table if not exists facturacion (
+create table if not exists facturacion ( -- d
     id_factura int primary key auto_increment,
     id_venta int,
     fecha_factura datetime not null,
@@ -268,7 +268,7 @@ create table if not exists facturacion (
     foreign key (id_venta) references ventas(id_venta)
 );
 
-create table if not exists envios(
+create table if not exists envios( -- d
     id_envio int primary key auto_increment,
     id_venta int,
     fecha_envio date,
@@ -279,7 +279,7 @@ create table if not exists envios(
     foreign key (id_direccion) references direcciones(id_direccion)
 );
 
-create table promociones (
+create table promociones ( -- d
     id_promocion int primary key auto_increment,
     nombre varchar(100) not null,
     descripcion text,
@@ -288,7 +288,7 @@ create table promociones (
     descuento decimal(5,2) not null
 );
 
-create table productos_promocion (
+create table productos_promocion ( -- d
     id_producto_promocion int primary key auto_increment,
     id_producto int,
     id_promocion int,
@@ -296,7 +296,7 @@ create table productos_promocion (
     foreign key (id_promocion) references promociones(id_promocion)
 );
 
-create table if not exists devoluciones(
+create table if not exists devoluciones( -- s
 	id_devolucion int primary key auto_increment,
     id_venta int,
     fecha_devolucion date not null,
@@ -304,7 +304,7 @@ create table if not exists devoluciones(
     foreign key (id_venta) references ventas(id_venta)
 );
 
-create table if not exists detalles_devoluciones(
+create table if not exists detalles_devoluciones( -- s
 	id_detalles_devoluciones int primary key auto_increment,
     id_devolucion int,
     id_producto int,

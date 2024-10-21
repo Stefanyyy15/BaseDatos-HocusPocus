@@ -1,6 +1,6 @@
 -- inserciones
 
-use paranormal_store;
+use hocus_pocus;
 
 insert into categorias_productos(nombre, descripcion) values
 ("disfraces", "Trajes completos que siguen una tematica especifica"),
@@ -78,7 +78,53 @@ INSERT INTO productos(nombre, descripcion, precio, id_categoria) VALUES
 ("Blush en crema", "Blush en crema para un acabado natural", 19.00, 2), -- 47
 ("Spray fijador de maquillaje", "Spray fijador para mantener el maquillaje en su lugar", 21.00, 2), -- 48
 ("Paleta de contorno", "Paleta de contorno para definir el rostro", 28.00, 2), -- 49
-("Brochas de maquillaje", "Set de brochas para aplicar maquillaje", 35.00, 2); -- 50
+("Brochas de maquillaje", "Set de brochas para aplicar maquillaje", 35.00, 2), -- 50
+
+("Mantel de fantasma", "Mantel tematico de fantasma", 15.00, 4), -- 51
+("Mantel del extraño mundo de jack", "Mantel basado en la pelicula del extraño mundo de jack", 10.00, 4), -- 52
+("Luces led naranjas", "Luces led naranjas para decoracion", 12.00, 4), -- 53
+("Poster de los cazafantasmas", "Poster de la pelicula de los cazafantasmas", 5.00, 4), -- 54
+("Poster de bettlejuice", "Poster de la pelicula bettlejuice", 2.00, 4), -- 55
+("Estanteria de murcielagos", "Estanteria en madera de murcielagos", "15.00", 4), -- 56
+("Mural de castillo antiguo", "Mural de plastico para casas", 20.00, 4), -- 57
+("Mesa de comidas de calabazas", "Mesa para comida con calabazas impresas", 60.00, 4), -- 58
+("Globos de calaveras", "Globos con calaveras impresas", 5.00, 4), -- 59
+("Alfombra roja", "Alfombra de aladin", 15.00, 4); -- 60
+
+insert into tipos_decoracion(nombre) values
+("manteles"), -- 1
+("letreros"), -- 2
+("cortinas"), -- 3
+("iluminacion"), -- 4
+("accesorios decorativos"), -- 5
+("paredes tematicas"), -- 6
+("estanterias"), -- 7
+("mesas"), -- 8
+("murales"), -- 9
+("adornos colgantes"), -- 10
+("cajas decorativas"), -- 11
+("elementos naturales"), -- 12
+("posters"), -- 13
+("carteles"), -- 14
+("globos"), -- 15
+("alfombras"), -- 16
+("objetos vintage"), -- 17
+("decoracion de ventanas"), -- 18
+("candelabros"), -- 19
+("señalizacion"), -- 20
+("tarros y frascos"); -- 21
+
+insert into decoraciones(tamaño, medida, id_producto, id_tipos_decoracion) values
+(15.2, "m", 51, 1), -- 1
+(10.2, "m", 52, 1), -- 2
+(10, "m", 53, 4), -- 3
+(25.3, "cm", 54, 13), -- 4
+(25.4, "cm", 55, 13), -- 5
+(5.2, "m", 56, 7), -- 6
+(2.1, "m", 57, 9), -- 7
+(7.2, "m", 58, 8), -- 8
+(2.1, "cm", 59, 15), -- 9
+(4.6, "m", 60, 16); -- 10
 
 INSERT INTO disfraces(id_producto, id_subcategoria, talla, genero, precio_alquiler) VALUES
 (1, 1, "s", "hombre", "30.00"),
