@@ -34,12 +34,19 @@ create table if not exists disfraces(
     foreign key (id_subcategoria) references subcategorias_disfraces_accesorios (id_subcategoria)
 );
 
-create table if not exists decoracion(
+create table if not exists tipos_decoracion(
+	id_tipos_decoracion int primary key auto_increment,
+    nombre varchar(100) not null
+);
+
+create table if not exists decoraciones(
 	id_decoracion int primary key auto_increment,
     tamaño decimal(10, 2) not null,
     medida enum("m", "cm", "mm") not null,
     id_producto int,
-    foreign key (id_producto) references productos (id_producto)
+    id_tipos_decoracion int,
+    foreign key (id_producto) references productos (id_producto),
+    foreign key (id_tipos_decoracion) references tipos_decoracion (id_tipos_decoracion)
 );
 
 create table if not exists tipos_accesorios(
