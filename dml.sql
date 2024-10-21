@@ -44,6 +44,39 @@ INSERT INTO productos(nombre, descripcion, precio, id_categoria) VALUES
 ("Disfraz de astronauta", "Disfraz de astronauta con casco y traje", 70.00, 1), -- 15
 ("Disfraz de robot de combate", "Disfraz de robot de combate con luces", 85.00, 1), -- 16
 ("Disfraz de sirena", "Disfraz de sirena con cola brillante", 75.00, 1), -- 17
+("Disfraz de Zeus", "Disfraz del dios mitologico Zeus", "85.00", 1), -- 18
+("Disfraz de cordero", "Simple disfraz de animal", "45.00", 1), -- 19
+("Disfraz de iron-man", "Disfraz de ironman el superheroe de Marvel", "25.00", 1), -- 20
+("Disfraz de la reina Elsa", "Disfraz de Elsa de Frozen con vestido azul", 75.00, 1), -- 21
+("Disfraz de gladiador romano", "Disfraz de gladiador con casco y armadura", 80.00, 1), -- 22
+("Disfraz de naruto", "Disfraz de naruto en shippuden", 55.00, 1), -- 23
+("Disfraz de conejo mágico", "Disfraz de conejo con chaqueta y sombrero de copa", 50.00, 1), -- 24
+("Disfraz de anuel", "Disfraz de anuel AA", 70.00, 1), -- 25
+("Disfraz de búho sabio", "Disfraz de búho con alas y capucha", 60.00, 1), -- 26
+("Disfraz de feid", "Disfraz del artista feid", 65.00, 1), -- 27
+("Disfraz de loba", "Disfraz de loba con melena y cola", 70.00, 1), -- 28
+("Disfraz de rick sanchez", "Disfraz con bata blanca y gafas", 50.00, 1), -- 29
+("Disfraz de vampira elegante", "Disfraz de vampira con vestido largo y capa", 60.00, 1), -- 30
+("Disfraz de marty mcfly", "Disfraz de marty de volver al futuro", 75.00, 1), -- 31
+("Disfraz de dragón feroz", "Disfraz de dragón con alas y escamas", 85.00, 1), -- 32
+("Disfraz de chef southpark", "Disfraz con gorro y delantal de chef", 50.00, 1), -- 33
+("Disfraz de micky mouse", "Disfraz de micky mouse", 70.00, 1), -- 34
+("Disfraz de ursula", "Disfraz de la villana ursula de la sirenita", 75.00, 1), -- 35
+("Disfraz de astronauta", "Disfraz de astronauta con traje espacial", 80.00, 1), -- 36
+("Disfraz de walter white", "Disfraz de walter white de breaking bad", 65.00, 1), -- 37
+("Disfraz de tony soprano", "Disfraz de mafioso de the sopranos", 55.00, 1), -- 38
+("Disfraz de link", "Disfraz del personaje link", 60.00, 1), -- 39
+("Disfraz de ángel oscuro", "Disfraz de ángel con alas negras y halo", 70.00, 1), -- 40
+("Disfraz de mario bros", "Disfraz inspirado en mario bros", 65.00, 1), -- 41
+("Disfraz de mimo", "Disfraz clásico de mimo con rayas y cara pintada", 50.00, 1), -- 42
+("Disfraz de hada oscura", "Disfraz de hada con alas y vestido negro", 65.00, 1), -- 43
+("Disfraz de rayo mcqueen", "Disfraz del rayo mcqueen de pixar", 70.00, 1), -- 44
+("Disfraz de samurái", "Disfraz de samurái con armadura tradicional", 80.00, 1), -- 45
+("Disfraz de cleopatra", "Disfraz de la antigua reina de egipto", 60.00, 1), -- 46
+("Disfraz de detective privado", "Disfraz de detective con sombrero y lupa", 55.00, 1), -- 47
+("Disfraz de fénix", "Disfraz del personaje de valorant", 80.00, 1), -- 48
+("Disfraz de napoleon", "Disfraz inspirado en el antiguo general napoleon", 85.00, 1), -- 49
+("Disfraz de hombre de negro", "Disfraz inspirado en la pelicula hombres de negro", 92.00, 1), -- 50
 
 ("Antifaz de carnaval", "Antifaz colorido para festivales y carnavales", 10.00, 3), -- 18
 ("Sombrero de pirata", "Sombrero negro clásico de pirata con detalles dorados", 15.00, 3), -- 19
