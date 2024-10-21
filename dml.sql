@@ -432,98 +432,104 @@ INSERT INTO usuarios(correo, contraseña) VALUES
 ('luisarmando@gmail.com', 'elcaminodelrey'); -- 50
 ;
 
-INSERT INTO ciudades(id, nombre) VALUES
-(1, 'Bogotá'),
-(2, 'Medellín'),
-(3, 'Cali'),
-(4, 'Barranquilla'),
-(5, 'Cartagena'),
-(6, 'Cúcuta'),
-(7, 'Pereira'),
-(8, 'Santa Marta'),
-(9, 'Bucaramanga'),
-(10, 'Manizales'),
-(11, 'Ibagué'),
-(12, 'Tunja'),
-(13, 'Villavicencio'),
-(14, 'Neiva'),
-(15, 'Valledupar'),
-(16, 'Popayán'),
-(17, 'Montería'),
-(18, 'Soledad'),
-(19, 'Sincelejo'),
-(20, 'Armenia'),
-(21, 'Quibdó'),
-(22, 'Leticia'),
-(23, 'Pasto'),
-(24, 'Tibú'),
-(25, 'Yumbo'),
-(26, 'Caldas'),
-(27, 'Girardot'),
-(28, 'Facatativá'),
-(29, 'Riohacha'),
-(30, 'San Andrés'),
-(31, 'Barrancabermeja'),
-(32, 'Chocontá'),
-(33, 'Sogamoso');
+INSERT INTO ciudades(nombre) VALUES
+('Bogotá'),
+('Medellín'),
+('Cali'),
+('Barranquilla'),
+('Cartagena'),
+('Cúcuta'),
+('Bucaramanga'),
+('Pereira'),
+('Santa Marta'),
+('Ibagué'),
+('Manizales'),
+('Neiva'),
+('Cali'),
+('Valledupar'),
+('Popayán'),
+('Sincelejo'),
+('Montería'),
+('Armenia'),
+('Cartago'),
+('Tunja'),
+('Bello'),
+('Soledad'),
+('Riohacha'),
+('Yopal'),
+('Quibdó'),
+('San Andrés'),
+('Leticia'),
+('Cúcuta'),
+('Villavicencio'),
+('Pasto'),
+('Tuluá'),
+('Buga'),
+('Chiquinquirá'),
+('Sogamoso'),
+('Rionegro'),
+('Barrancabermeja'),
+('Aguachica'),
+('Ciénaga'),
+('El Banco'),
+('Mocoa'),
+('San Gil'),
+('Sampués'),
+('Tame'),
+('Tibú'),
+('Caldas'),
+('Guatapé'),
+('Zipaquirá'),
+('Santiago de Cali');
 
-INSERT INTO barrios(id, nombre, ciudad_id) VALUES
-(1, 'La Candelaria', 1),
-(2, 'Chapinero', 1),
-(3, 'Usaquén', 1),
-(4, 'Poblado', 2),
-(5, 'Laureles', 2),
-(6, 'Guayabal', 2),
-(7, 'San Fernando', 3),
-(8, 'El Peñón', 3),
-(9, 'Versalles', 3),
-(10, 'Centro', 4),
-(11, 'El Prado', 4),
-(12, 'Manga', 5),
-(13, 'Bocagrande', 5),
-(14, 'La Playa', 6),
-(15, 'San Juan', 6),
-(16, 'El Lago', 7),
-(17, 'Centro', 7),
-(18, 'El Rodadero', 8),
-(19, 'Provenza', 9),
-(20, 'Cabecera', 9),
-(21, 'Morrorico', 9),
-(22, 'El Cable', 10),
-(23, 'La Enea', 10),
-(24, 'La Alborada', 11),
-(25, 'La Pola', 11),
-(26, 'La Candelaria', 12),
-(27, 'El Centro', 12),
-(28, 'La Nueva', 13),
-(29, 'Los Ocarros', 13),
-(30, 'Las Palmas', 14),
-(31, 'El Jardín', 14),
-(32, 'Cerro de Jesús', 15),
-(33, 'El Callejón', 15),
-(34, 'El Centro', 16),
-(35, 'La Esmeralda', 16),
-(36, 'Centro Histórico', 17),
-(37, 'El Viajero', 17),
-(38, 'La Loma', 18),
-(39, 'El Campestre', 18),
-(40, 'Las Mercedes', 19),
-(41, 'El Centro', 19),
-(42, 'El Bosque', 20),
-(43, 'La Tebaida', 20),
-(44, 'Centro', 21),
-(45, 'El Jardín', 21),
-(46, 'La Paz', 22),
-(47, 'Los Ángeles', 22),
-(48, 'La Rosa', 23),
-(49, 'El Llano', 23),
-(50, 'El Trapiche', 24),
-(51, 'Las Palmas', 25),
-(52, 'Los Álamos', 26),
-(53, 'San José', 27),
-(54, 'El Balcón', 28),
-(55, 'Las Flores', 29),
-(56, 'San Luis', 30),
-(57, 'El Trapiche', 31),
-(58, 'El Centro', 32),
-(59, 'Las Vegas', 33);
+INSERT INTO barrios(nombre, id_ciudad) VALUES
+('La Candelaria', 1), -- 1
+('El Poblado', 2), -- 2
+('San Fernando', 3), -- 3
+('El Prado', 4), -- 4
+('Getsemaní', 5), -- 5
+('La Playa', 6), -- 6
+('Morrorico', 7), -- 7
+('Pinares', 8), -- 8
+('Rodadero', 9), -- 9
+('La Pola', 10), -- 10
+('Cable', 11), -- 11
+('Las Vegas', 12), -- 12
+('Gaira', 13), -- 13
+('Centro Histórico', 14), -- 14
+('El Morro', 15), -- 15
+('Alameda', 16), -- 16
+('La Tebaida', 17), -- 17
+('El Centro', 18), -- 18
+('San Mateo', 19), -- 19
+('Tunja Vieja', 20), -- 20
+('Niquía', 21), -- 21
+('La Ceja', 22), -- 22
+('El Malecón', 23), -- 23
+('El Bosque', 24), -- 24
+('El Jardín', 25), -- 25
+('San Andrés', 26), -- 26
+('Centro', 27), -- 27
+('Los Patios', 28), -- 28
+('Hato Grande', 29), -- 29
+('La Rosa', 30), -- 30
+('El Trapiche', 31), -- 31
+('Buga Centro', 32), -- 32
+('Santa Teresa', 33), -- 33
+('El Libertador', 34), -- 34
+('La Esperanza', 35), -- 35
+('Centro', 36), -- 36
+('San Vicente', 37), -- 37
+('Cienaga Centro', 38), -- 38
+('El Placer', 39), -- 39
+('Centro', 40), -- 40
+('Los Alpes', 41), -- 41
+('La Pampa', 42), -- 42
+('Centro', 43), -- 43
+('El Chocó', 44), -- 44
+('Sierra Nevada', 45), -- 45
+('Los Rosales', 46), -- 46
+('Las Brisas', 47), -- 47
+('Puente Aranda', 48), -- 48
+('El Oasis', 49), -- 49
+('La Paz', 50); -- 50
