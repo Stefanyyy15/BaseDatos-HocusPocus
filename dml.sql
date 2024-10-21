@@ -44,9 +44,9 @@ INSERT INTO productos(nombre, descripcion, precio, id_categoria) VALUES
 ("Disfraz de astronauta", "Disfraz de astronauta con casco y traje", 70.00, 1), -- 15
 ("Disfraz de robot de combate", "Disfraz de robot de combate con luces", 85.00, 1), -- 16
 ("Disfraz de sirena", "Disfraz de sirena con cola brillante", 75.00, 1), -- 17
-("Disfraz de Zeus", "Disfraz del dios mitologico Zeus", "85.00", 1), -- 18
-("Disfraz de cordero", "Simple disfraz de animal", "45.00", 1), -- 19
-("Disfraz de iron-man", "Disfraz de ironman el superheroe de Marvel", "25.00", 1), -- 20
+("Disfraz de Zeus", "Disfraz del dios mitologico Zeus", 85.00, 1), -- 18
+("Disfraz de cordero", "Simple disfraz de animal", 45.00, 1), -- 19
+("Disfraz de iron-man", "Disfraz de ironman el superheroe de Marvel", 25.00, 1), -- 20
 ("Disfraz de la reina Elsa", "Disfraz de Elsa de Frozen con vestido azul", 75.00, 1), -- 21
 ("Disfraz de gladiador romano", "Disfraz de gladiador con casco y armadura", 80.00, 1), -- 22
 ("Disfraz de naruto", "Disfraz de naruto en shippuden", 55.00, 1), -- 23
@@ -78,51 +78,159 @@ INSERT INTO productos(nombre, descripcion, precio, id_categoria) VALUES
 ("Disfraz de napoleon", "Disfraz inspirado en el antiguo general napoleon", 85.00, 1), -- 49
 ("Disfraz de hombre de negro", "Disfraz inspirado en la pelicula hombres de negro", 92.00, 1), -- 50
 
-("Antifaz de carnaval", "Antifaz colorido para festivales y carnavales", 10.00, 3), -- 18
-("Sombrero de pirata", "Sombrero negro clásico de pirata con detalles dorados", 15.00, 3), -- 19
-("Sombrero de vaquero", "Sombrero de vaquero clásico con cinta", 12.00, 3), -- 20
-("Capa de vampiro", "Capa negra con forro rojo, ideal para vampiros", 30.00, 3), -- 21
-("Capa roja de superhéroe", "Capa roja brillante para superhéroes", 28.00, 3), -- 22
-("Diadema de unicornio", "Diadema con cuerno de unicornio", 11.00, 3), -- 23
-("Capa de mago", "Capa negra de mago con estrellas doradas", 32.00, 3), -- 24
-("Diadema de flores", "Diadema decorada con flores coloridas", 15.00, 3), -- 25
-("Cinturón de guerrero", "Cinturón de cuero para guerreros", 20.00, 3), -- 26
-("Sombrero de doctor", "Sombrero de doctor clásico", 10.00, 3), -- 27
-("Capa de superhéroe", "Capa brillante de superhéroe", 25.00, 3), -- 28
-("Gorro de elfo", "Gorro verde de elfo con orejas", 9.00, 3), -- 29
+("Antifaz de carnaval", "Antifaz colorido para festivales y carnavales", 10.00, 3), -- 51
+("Sombrero de pirata", "Sombrero negro clásico de pirata con detalles dorados", 15.00, 3), -- 52
+("Sombrero de vaquero", "Sombrero de vaquero clásico con cinta", 12.00, 3), -- 53
+("Capa de vampiro", "Capa negra con forro rojo, ideal para vampiros", 30.00, 3), -- 54
+("Capa roja de superhéroe", "Capa roja brillante para superhéroes", 28.00, 3), -- 55
+("Diadema de unicornio", "Diadema con cuerno de unicornio", 11.00, 3), -- 56
+("Capa de mago", "Capa negra de mago con estrellas doradas", 32.00, 3), -- 57
+("Diadema de flores", "Diadema decorada con flores coloridas", 15.00, 3), -- 58
+("Cinturón de guerrero", "Cinturón de cuero para guerreros", 20.00, 3), -- 59
+("Sombrero de doctor", "Sombrero de doctor clásico", 10.00, 3), -- 60
+("Capa de superhéroe", "Capa brillante de superhéroe", 25.00, 3), -- 61
+("Gorro de elfo", "Gorro verde de elfo con orejas", 9.00, 3), -- 62
+("Máscara de dragón", "Máscara detallada de dragón para fiestas", 25.00, 3), -- 63
+("Capa de princesa", "Capa brillante de princesa en tonos rosados", 27.00, 3), -- 64
+("Sombrero de chef", "Sombrero blanco clásico de chef", 12.00, 3), -- 65
+("Diadema de mariposa", "Diadema con alas de mariposa en colores vibrantes", 13.00, 3), -- 66
+("Gafas de aviador", "Gafas clásicas de aviador con lentes oscuros", 18.00, 3), -- 67
+("Cinturón de superhéroe", "Cinturón con emblema dorado de superhéroe", 22.00, 3), -- 68
+("Máscara de zorro", "Máscara de zorro con detalles realistas", 19.00, 3), -- 69
+("Varita mágica de estrella", "Varita mágica con estrella dorada en la punta", 10.00, 3), -- 70
+("Peluca de sirena", "Peluca larga en tonos azules y verdes", 35.00, 3), -- 71
+("Pañuelo pirata", "Pañuelo rojo con diseño de calavera", 8.00, 3), -- 72
+("Faja de luchador", "Faja dorada para atuendos de luchador", 20.00, 3), -- 73
+("Espada de juguete", "Espada de plástico con empuñadura dorada", 15.00, 3), -- 74
+("Tatuajes temporales de calavera", "Tatuajes temporales con diseños de calaveras", 5.00, 3), -- 75
+("Bolso de unicornio", "Bolso con diseño de unicornio", 22.00, 3), -- 76
+("Collar de perlas falsas", "Collar largo de perlas falsas blancas", 14.00, 3), -- 77
+("Casco de vikingo", "Casco con cuernos estilo vikingo", 20.00, 3), -- 78
+("Orejas de gato", "Diadema con orejas de gato negras y rosas", 10.00, 3), -- 79
+("Botas de vaquero", "Botas marrones de vaquero con detalles", 40.00, 3), -- 80
+("Camisa de superhéroe", "Camisa con emblema de superhéroe en el pecho", 25.00, 3), -- 81
+("Chaleco de cazador", "Chaleco camuflado estilo cazador", 30.00, 3), -- 82
+("Guantes de esqueleto", "Guantes negros con diseño de esqueleto blanco", 12.00, 3), -- 83
+("Falda de bailarina", "Falda de tul rosada para disfraces de bailarina", 18.00, 3), -- 84
+("Gorro de mago", "Gorro cónico negro con estrellas doradas", 14.00, 3), -- 85
+("Collar de bruja", "Collar con colgante de bruja y cadena negra", 9.00, 3), -- 86
+("Brazalete de guerrero", "Brazalete de cuero con detalles metálicos", 16.00, 3), -- 87
+("Mochila de superhéroe", "Mochila roja con diseño de superhéroe", 20.00, 3), -- 88
+("Ropa interior temática de superhéroe", "Conjunto de ropa interior temática de superhéroe", 15.00, 3), -- 89
+("Cascos de astronauta", "Casco blanco con visera transparente estilo astronauta", 30.00, 3), -- 90
+("Diadema con orejas de conejo", "Diadema con orejas de conejo rosadas", 8.00, 3), -- 91
+("Sombrero de vaquero para niños", "Sombrero de vaquero marrón para niños", 10.00, 3), -- 92
+("Capa de ninja", "Capa negra estilo ninja con capucha", 24.00, 3), -- 93
+("Faja de superhéroe", "Faja de tela brillante estilo superhéroe", 12.00, 3), -- 94
+("Gafas de sol estilo retro", "Gafas de sol con marco grande estilo retro", 18.00, 3), -- 95
+("Varita mágica con luz", "Varita mágica con luz brillante en la punta", 15.00, 3), -- 96
+("Sombrero de bruja", "Sombrero negro puntiagudo estilo bruja", 14.00, 3), -- 97
+("Botas de pirata", "Botas negras de pirata con detalles dorados", 35.00, 3), -- 98
+("Pañuelo de vaquero", "Pañuelo rojo con diseño clásico de vaquero", 6.00, 3), -- 99
+("Bata de científico", "Bata blanca estilo científico con bolsillos", 25.00, 3), -- 100
 
-("Sombra de ojos brillante", "Paleta de sombras de ojos en tonos vibrantes", 22.00, 2), -- 30
-("Sombra de ojos mate", "Paleta de sombras mate en tonos neutros", 20.00, 2), -- 31
-("Sombra de ojos metálica", "Sombra de ojos metálica para un look glamuroso", 27.00, 2), -- 32
-("Sombra de ojos en crema", "Sombra de ojos en crema para una aplicación fácil", 25.00, 2), -- 33
-("Delineador líquido", "Delineador líquido de larga duración", 15.00, 2), -- 34
-("Delineador en gel", "Delineador en gel para un acabado suave", 18.00, 2), -- 35
-("Labial mate", "Labial mate en varios colores", 18.00, 2), -- 36
-("Labial brillante", "Labial brillante para un acabado luminoso", 17.00, 2), -- 37
-("Labial de larga duración", "Labial de larga duración en tonos intensos", 20.00, 2), -- 38
-("Pintura facial", "Pintura facial para crear diseños y personajes", 20.00, 2), -- 39
-("Glitter facial", "Glitter para decorar el rostro y cuerpo", 12.00, 2), -- 40
-("Maquillaje en crema", "Maquillaje en crema de alta cobertura", 25.00, 2), -- 41
-("Pintura de cuerpo", "Pintura para crear diseños en el cuerpo", 30.00, 2), -- 42
-("Rímel waterproof", "Rímel resistente al agua para mayor duración", 20.00, 2), -- 43
-("Gloss labial", "Gloss labial para un brillo adicional", 14.00, 2), -- 44
-("Lápiz de cejas", "Lápiz para definir las cejas con precisión", 16.00, 2), -- 45
-("Lápiz labial retractable", "Lápiz labial retractable en colores vibrantes", 19.00, 2), -- 46
-("Blush en crema", "Blush en crema para un acabado natural", 19.00, 2), -- 47
-("Spray fijador de maquillaje", "Spray fijador para mantener el maquillaje en su lugar", 21.00, 2), -- 48
-("Paleta de contorno", "Paleta de contorno para definir el rostro", 28.00, 2), -- 49
-("Brochas de maquillaje", "Set de brochas para aplicar maquillaje", 35.00, 2), -- 50
+("Sombra de ojos brillante", "Paleta de sombras de ojos en tonos vibrantes", 22.00, 2), -- 101
+("Sombra de ojos mate", "Paleta de sombras mate en tonos neutros", 20.00, 2), -- 102
+("Sombra de ojos metálica", "Sombra de ojos metálica para un look glamuroso", 27.00, 2), -- 103
+("Sombra de ojos en crema", "Sombra de ojos en crema para una aplicación fácil", 25.00, 2), -- 104
+("Delineador líquido", "Delineador líquido de larga duración", 15.00, 2), -- 105
+("Delineador en gel", "Delineador en gel para un acabado suave", 18.00, 2), -- 106
+("Labial mate", "Labial mate en varios colores", 18.00, 2), -- 107
+("Labial brillante", "Labial brillante para un acabado luminoso", 17.00, 2), -- 108
+("Labial de larga duración", "Labial de larga duración en tonos intensos", 20.00, 2), -- 109
+("Pintura facial", "Pintura facial para crear diseños y personajes", 20.00, 2), -- 110
+("Glitter facial", "Glitter para decorar el rostro y cuerpo", 12.00, 2), -- 111
+("Maquillaje en crema", "Maquillaje en crema de alta cobertura", 25.00, 2), -- 112
+("Pintura de cuerpo", "Pintura para crear diseños en el cuerpo", 30.00, 2), -- 113
+("Rímel waterproof", "Rímel resistente al agua para mayor duración", 20.00, 2), -- 114
+("Gloss labial", "Gloss labial para un brillo adicional", 14.00, 2), -- 115
+("Lápiz de cejas", "Lápiz para definir las cejas con precisión", 16.00, 2), -- 116
+("Lápiz labial retractable", "Lápiz labial retractable en colores vibrantes", 19.00, 2), -- 117
+("Blush en crema", "Blush en crema para un acabado natural", 19.00, 2), -- 118
+("Spray fijador de maquillaje", "Spray fijador para mantener el maquillaje en su lugar", 21.00, 2), -- 119
+("Paleta de contorno", "Paleta de contorno para definir el rostro", 28.00, 2), -- 120
+("Brochas de maquillaje", "Set de brochas para aplicar maquillaje", 35.00, 2), -- 121
+("Sombra de ojos en tonos pastel", "Sombra de ojos en tonos suaves y delicados", 23.00, 2), -- 122
+("Sombra de ojos holográfica", "Sombra de ojos con acabado holográfico brillante", 30.00, 2), -- 123
+("Delineador resistente al agua", "Delineador de ojos resistente al agua para larga duración", 19.00, 2), -- 124
+("Labial en barra", "Labial en barra para una aplicación fácil", 17.00, 2), -- 125
+("Labial líquido", "Labial líquido con acabado mate", 20.00, 2), -- 126
+("Glitter en gel", "Glitter en gel fácil de aplicar y de larga duración", 14.00, 2), -- 127
+("Maquillaje en polvo", "Maquillaje compacto en polvo de cobertura media", 22.00, 2), -- 128
+("Pintura facial metálica", "Pintura facial con acabado metálico", 25.00, 2), -- 129
+("Rímel voluminoso", "Rímel para dar volumen extra a las pestañas", 21.00, 2), -- 130
+("Gloss labial volumizador", "Gloss labial que da volumen y brillo", 15.00, 2), -- 131
+("Lápiz de cejas waterproof", "Lápiz para cejas resistente al agua", 18.00, 2), -- 132
+("Blush en polvo", "Blush en polvo para un acabado mate", 19.00, 2), -- 133
+("Spray fijador mate", "Spray fijador de maquillaje con acabado mate", 22.00, 2), -- 134
+("Corrector líquido", "Corrector de alta cobertura en formato líquido", 17.00, 2), -- 135
+("Base de maquillaje líquida", "Base de maquillaje líquida de larga duración", 28.00, 2), -- 136
+("Iluminador en polvo", "Iluminador en polvo para un brillo sutil", 24.00, 2), -- 137
+("Iluminador en crema", "Iluminador en crema para un acabado radiante", 26.00, 2), -- 138
+("Esponjas para aplicar base", "Esponjas suaves para aplicar base de maquillaje", 10.00, 2), -- 139
+("Paleta de rubor", "Paleta de rubores en tonos cálidos", 29.00, 2), -- 140
+("Tinte para labios", "Tinte para labios de larga duración", 16.00, 2), -- 141
+("Pestañas postizas naturales", "Pestañas postizas con un look natural", 12.00, 2), -- 142
+("Pestañas postizas dramáticas", "Pestañas postizas para un look dramático", 14.00, 2), -- 143
+("Pegamento para pestañas", "Pegamento transparente para pestañas postizas", 8.00, 2), -- 144
+("Uñas postizas decoradas", "Uñas postizas decoradas con diseño elegante", 15.00, 2), -- 145
+("Polvo compacto translúcido", "Polvo compacto translúcido para fijar el maquillaje", 18.00, 2), -- 146
+("Polvo bronceador", "Polvo bronceador para dar color al rostro", 22.00, 2), -- 147
+("Brochas para ojos", "Set de brochas de precisión para sombras y delineado", 20.00, 2), -- 148
+("Lápiz labial hidratante", "Lápiz labial con propiedades hidratantes", 17.00, 2), -- 149
+("Base de maquillaje en polvo", "Base de maquillaje en polvo para cobertura ligera", 24.00, 2), -- 150
 
-("Mantel de fantasma", "Mantel tematico de fantasma", 15.00, 4), -- 51
-("Mantel del extraño mundo de jack", "Mantel basado en la pelicula del extraño mundo de jack", 10.00, 4), -- 52
-("Luces led naranjas", "Luces led naranjas para decoracion", 12.00, 4), -- 53
-("Poster de los cazafantasmas", "Poster de la pelicula de los cazafantasmas", 5.00, 4), -- 54
-("Poster de bettlejuice", "Poster de la pelicula bettlejuice", 2.00, 4), -- 55
-("Estanteria de murcielagos", "Estanteria en madera de murcielagos", "15.00", 4), -- 56
-("Mural de castillo antiguo", "Mural de plastico para casas", 20.00, 4), -- 57
-("Mesa de comidas de calabazas", "Mesa para comida con calabazas impresas", 60.00, 4), -- 58
-("Globos de calaveras", "Globos con calaveras impresas", 5.00, 4), -- 59
-("Alfombra roja", "Alfombra de aladin", 15.00, 4); -- 60
+("Mantel de fantasma", "Mantel tematico de fantasma", 15.00, 4), -- 151
+("Mantel del extraño mundo de jack", "Mantel basado en la pelicula del extraño mundo de jack", 10.00, 4), -- 152
+("Luces led naranjas", "Luces led naranjas para decoracion", 12.00, 4), -- 153
+("Poster de los cazafantasmas", "Poster de la pelicula de los cazafantasmas", 5.00, 4), -- 154
+("Poster de bettlejuice", "Poster de la pelicula bettlejuice", 2.00, 4), -- 155
+("Estanteria de murcielagos", "Estanteria en madera de murcielagos", 15.00, 4), -- 156
+("Mural de castillo antiguo", "Mural de plastico para casas", 20.00, 4), -- 157
+("Mesa de comidas de calabazas", "Mesa para comida con calabazas impresas", 60.00, 4), -- 158
+("Globos de calaveras", "Globos con calaveras impresas", 5.00, 4), -- 159
+("Alfombra roja", "Alfombra de aladin", 15.00, 4), -- 160
+("Mantel de telarañas", "Mantel con diseño de telarañas para cenas temáticas", 12.00, 4), -- 161
+("Letrero luminoso de neón", "Letrero de neón con mensaje 'Happy Halloween'", 20.00, 4), -- 162
+("Cortinas de sangre falsa", "Cortinas decoradas con salpicaduras de sangre", 15.00, 4), -- 163
+("Luces led en forma de calabaza", "Luces led en forma de pequeñas calabazas", 18.00, 4), -- 164
+("Caldero de bruja", "Caldero decorativo para usar como centro de mesa", 22.00, 4), -- 165
+("Pared temática de castillo encantado", "Panel decorativo para transformar paredes en castillos", 25.00, 4), -- 166
+("Estantería de lápidas", "Estantería en forma de lápidas para libros o decoraciones", 30.00, 4), -- 167
+("Mesa con patas de araña", "Mesa de centro con patas que simulan arañas", 45.00, 4), -- 168
+("Mural de mansión embrujada", "Mural gigante que muestra una mansión embrujada", 50.00, 4), -- 169
+("Adornos colgantes de calaveras", "Conjunto de calaveras colgantes fosforescentes", 12.00, 4), -- 170
+("Caja decorativa con esqueletos", "Caja para almacenar dulces con diseño de esqueletos", 8.00, 4), -- 171
+("Ramas con luces led", "Ramas decorativas con pequeñas luces led integradas", 15.00, 4), -- 172
+("Poster de la luna llena", "Poster con una ilustración de luna llena en noche oscura", 7.00, 4), -- 173
+("Cartel de bienvenida espeluznante", "Cartel con la frase 'Cuidado, entrada prohibida'", 5.00, 4), -- 174
+("Globos con forma de fantasmas", "Globos con forma tridimensional de fantasmas", 9.00, 4), -- 175
+("Alfombra de cráneos", "Alfombra pequeña con impresión de cráneos y huesos", 25.00, 4), -- 176
+("Candelabro antiguo oxidado", "Candelabro decorativo con aspecto de óxido envejecido", 40.00, 4), -- 177
+("Decoración de ventanas de telarañas", "Redes de telarañas para colocar en ventanas", 10.00, 4), -- 178
+("Frascos de pócimas mágicas", "Frascos decorativos con etiquetas de pócimas mágicas", 12.00, 4), -- 179
+("Mantel de gatos negros", "Mantel con diseño de gatos negros en diversas posiciones", 14.00, 4), -- 180
+("Letrero de calaveras cruzadas", "Letrero metálico con calaveras cruzadas", 18.00, 4), -- 181
+("Cortinas de hojas otoñales", "Cortinas con impresión de hojas otoñales en tonos oscuros", 16.00, 4), -- 181
+("Luces led en forma de huesos", "Cadena de luces led con pequeñas figuras de huesos", 20.00, 4), -- 182
+("Búho decorativo de cerámica", "Figura decorativa de búho para mesas o estanterías", 25.00, 4), -- 183
+("Pared de castillo medieval", "Panel de pared decorativo con ladrillos estilo medieval", 35.00, 4), -- 184
+("Estantería de ataúd", "Estantería en forma de ataúd vertical para libros o decoraciones", 50.00, 4), -- 185
+("Mesa en forma de lápida", "Mesa pequeña con tapa en forma de lápida", 65.00, 4), -- 186
+("Mural de noche de luna llena", "Mural gigante con una escena nocturna de luna llena", 55.00, 4), -- 187
+("Adornos colgantes de ojos", "Ojos colgantes de plástico para una decoración terrorífica", 15.00, 4), -- 188
+("Caja decorativa con vampiros", "Caja decorativa con ilustraciones de vampiros", 10.00, 4), -- 189
+("Hojas secas artificiales", "Hojas artificiales con aspecto seco para decoraciones", 8.00, 4), -- 190
+("Poster de Frankenstein", "Poster clásico de la película Frankenstein", 5.00, 4), -- 191
+("Cartel de advertencia No pasar", "Cartel decorativo que advierte No pasar", 7.00, 4), -- 192
+("Globos en forma de araña", "Globos decorados con figuras de arañas", 8.00, 4),  -- 193
+("Alfombra en forma de murciélago", "Alfombra decorativa con diseño de murciélago", 22.00, 4), -- 194
+("Espejo con marco de cráneos", "Espejo decorativo con marco de cráneos en relieve", 35.00, 4), -- 195
+("Decoración de ventanas con fantasmas", "Ventanas decorativas con fantasmas translúcidos", 12.00, 4), -- 196
+("Candelabro en forma de manos esqueléticas", "Candelabro con diseño de manos esqueléticas sosteniendo las velas", 28.00, 4), -- 197
+("Señalizacion casa embrujada", "Cartel de señalización que indica una Casa embrujada", 6.00, 4), -- 198
+("Tarro con calabazas en miniatura", "Tarro decorativo con mini calabazas para mesa", 10.00, 4), -- 199
+("Luces led amarillas", "Luces led amarillas con fines decorativos", 10.00, 4); -- 200
 
 insert into tipos_decoracion(nombre) values
 ("manteles"), -- 1
