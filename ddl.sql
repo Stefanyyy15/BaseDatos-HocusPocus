@@ -107,12 +107,6 @@ create table if not exists clientes(
     fecha_nacimiento date not null
 );
 
-create table if not exists usuarios(
-	id_usuario int primary key auto_increment,
-    correo varchar(100) unique not null,
-    contraseña varchar(100) not null
-);
-
 create table if not exists ciudades(
 	id_ciudad int primary key auto_increment,
     nombre varchar(100) not null
@@ -135,6 +129,14 @@ create table if not exists direcciones( -- d
     id_barrio int,
     foreign key (id_barrio) references barrios (id_barrio),
     foreign key (id_cliente) references clientes (id_cliente)
+);
+
+create table if not exists usuarios(
+	id_usuario int primary key auto_increment,
+    correo varchar(100) unique not null,
+    contraseña varchar(100) not null,
+    id_direccion int,
+    foreign key(id_direccion) references direcciones(id_direccion)
 );
 
 create table if not exists ventas( -- d
@@ -173,8 +175,9 @@ create table if not exists detalles_ventas_online( -- s
 	id_detalle_venta_online int primary key auto_increment,
     id_venta_online int,
     id_direccion int,
+    id_producto int,
     foreign key(id_venta_online) references ventas_online(id_venta_online),
-    foreign key(id_direccion) references direcciones(id_direccion)
+    foreign key (id_producto) references productos (id_producto)
 );
 
 create table if not exists tarjetas( -- s

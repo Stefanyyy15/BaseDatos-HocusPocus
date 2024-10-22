@@ -824,59 +824,6 @@ INSERT INTO clientes (cedula, nombres, apellidos, email, telefono, fecha_nacimie
 ('1005327325', 'Diego', 'Mendoza', 'diego.mendoza@example.com', '3173109605', '1985-11-30'), -- 49
 ('1005327326', 'Natalia', 'Cordero', 'natalia.cordero@example.com', '3173109606', '1993-04-25'); -- 50
 
-INSERT INTO usuarios(correo, contraseña) VALUES
-('juanito12@gmail.com', 'cucarachasunidas'), -- 1
-('beatrizOrtiz@gmail.com', 'contraseña123'), -- 2
-('dxniel7328@gmail.com', 'Yosoyslerdenman2'), -- 3
-('joseTinieblo@gmail.com', 'pepe331'), -- 4
-('maicolmaluma@gmail.com', 'pritiboy45'), -- 5
-('jessejoy@gmail.com', 'ladelamalasuerte22'), -- 6
-('juanobanano@gmail.com', 'amoelfulvo'), -- 7
-('juanito13@gmail.com', 'jamasvencidas'), -- 8
-('julianbellaco@gmail.com', 'taylor1313'), -- 9
-('arjona@gmail.com', 'fuistetudaniel'), -- 10
-('marianapelirroja@gmail.com', 'amohombrescasados'), -- 11
-('adrian2873@gmail.com', 'amoastefa15'), -- 12
-('alberto@gmail.com', 'contraseña111'), -- 13
-('rosamelano@gmail.com', 'qpongoaki'), -- 14
-('luiscalvo@gmail.com', 'Yosoybatman3'), -- 15
-('anagabriel@gmail.com', 'noqroqseamosamigos'), -- 16
-('stefanyyy15@gmail.com', 'losodioatodos'), -- 17
-('sofiachar@gmail.com', 'descendientestamo'), -- 18
-('andreagomela@gmail.com', 'lokitajeje'), -- 19 
-('jesus@gmail.com', "losamo"), -- 20
-('michelleDayana@gmail.com', "3amamuerte"), -- 21
-('esteban22@gmail.com', 'contraseñadificil'), -- 22
-('camilacabello@gmail.com', 'solocriticasybesos'), -- 23
-('lorettamartinez@gmail.com', 'vivaelamor'), -- 24
-('pablitoperez@gmail.com', 'todoslosdias'), -- 25
-('anita_nieves@gmail.com', 'risasydiversion'), -- 26
-('juliancito99@gmail.com', 'felicidadplena'), -- 27
-('catalinapinto@gmail.com', 'fiestasytacos'), -- 28
-('ricardo_heroico@gmail.com', 'avengersforever'), -- 29
-('marisol_2023@gmail.com', 'almaslibres'), -- 30
-('fabiola_luna@gmail.com', 'entretenimientotal'), -- 31
-('davidrodriguez@gmail.com', 'amordelbueno'), -- 32
-('elena_gonzalez@gmail.com', 'pasionporlavida'), -- 33
-('albertogarcia@gmail.com', 'chicosinromanticos'), -- 34
-('vanessahart@gmail.com', 'sueñosyrealidad'), -- 35
-('santiagocruz@gmail.com', 'risastotal'), -- 36
-('diana_baez@gmail.com', 'momentosmagicos'), -- 37
-('josephina2023@gmail.com', 'dameunabrazo'), -- 38
-('nicolasalvador@gmail.com', 'caminosabiertos'), -- 39
-('marcelafernandez@gmail.com', 'superalegria'), -- 40
-('antonioquintero@gmail.com', 'somosfamilia'), -- 41
-('claracabrera@gmail.com', 'luzdelmundo'), -- 42
-('ricardoherrera@gmail.com', 'juntosporlavida'), -- 43
-('patricia_diaz@gmail.com', 'sueñoscolorados'), -- 44
-('sergioalonso@gmail.com', 'miaventura2023'), -- 45
-('valentinajimenez@gmail.com', 'mimundomagico'), -- 46
-('jaime_perez@gmail.com', 'felizcomounaava'), -- 47
-('martinrojas@gmail.com', 'luzdetranquilidad'), -- 48
-('adriana_morales@gmail.com', 'unavidaentera'), -- 49
-('luisarmando@gmail.com', 'elcaminodelrey'); -- 50
-
-
 INSERT INTO ciudades(nombre) VALUES
 ('Bogotá'),
 ('Medellín'),
@@ -1030,6 +977,58 @@ insert into direcciones(id_cliente, tipo_via, direccion, indicaciones, codigo_po
 (48, 'transversal', '43#56-12', 'Apto 504', '250051', 47), -- 48
 (49, 'carrera', '45#12-78', 'Torre 1 Apto 201', '6840001', 48), -- 49
 (50, 'calle', '32#21-56', 'Casa blanca al lado de tienda', '762022', 49); -- 50
+
+INSERT INTO usuarios(correo, contraseña, id_direccion) VALUES
+('juanito12@gmail.com', 'cucarachasunidas', 1), -- 1
+('beatrizOrtiz@gmail.com', 'contraseña123', 5), -- 2
+('dxniel7328@gmail.com', 'Yosoyslerdenman2', 8), -- 3
+('joseTinieblo@gmail.com', 'pepe331', 19), -- 4
+('maicolmaluma@gmail.com', 'pritiboy45', 25), -- 5
+('jessejoy@gmail.com', 'ladelamalasuerte22', 41), -- 6
+('juanobanano@gmail.com', 'amoelfulvo', 15), -- 7
+('juanito13@gmail.com', 'jamasvencidas', 9), -- 8
+('julianbellaco@gmail.com', 'taylor1313', 1), -- 9
+('arjona@gmail.com', 'fuistetudaniel', 20), -- 10
+('marianapelirroja@gmail.com', 'amohombrescasados', 14), -- 11
+('adrian2873@gmail.com', 'amoastefa15', 13), -- 12
+('alberto@gmail.com', 'contraseña111', 14), -- 13
+('rosamelano@gmail.com', 'qpongoaki', 17), -- 14
+('luiscalvo@gmail.com', 'Yosoybatman3', 41), -- 15
+('anagabriel@gmail.com', 'noqroqseamosamigos', 21), -- 16
+('stefanyyy15@gmail.com', 'losodioatodos', 20), -- 17
+('sofiachar@gmail.com', 'descendientestamo', 13), -- 18
+('andreagomela@gmail.com', 'lokitajeje', 12), -- 19 
+('jesus@gmail.com', "losamo", 11), -- 20
+('michelleDayana@gmail.com', "3amamuerte", 11), -- 21
+('esteban22@gmail.com', 'contraseñadificil', 40), -- 22
+('camilacabello@gmail.com', 'solocriticasybesos', 12), -- 23
+('lorettamartinez@gmail.com', 'vivaelamor', 3), -- 24
+('pablitoperez@gmail.com', 'todoslosdias', 1), -- 25
+('anita_nieves@gmail.com', 'risasydiversion', 27), -- 26
+('juliancito99@gmail.com', 'felicidadplena', 30), -- 27
+('catalinapinto@gmail.com', 'fiestasytacos', 46), -- 28
+('ricardo_heroico@gmail.com', 'avengersforever', 26), -- 29
+('marisol_2023@gmail.com', 'almaslibres', 16), -- 30
+('fabiola_luna@gmail.com', 'entretenimientotal', 18), -- 31
+('davidrodriguez@gmail.com', 'amordelbueno', 19), -- 32
+('elena_gonzalez@gmail.com', 'pasionporlavida', 19), -- 33
+('albertogarcia@gmail.com', 'chicosinromanticos', 27), -- 34
+('vanessahart@gmail.com', 'sueñosyrealidad', 20), -- 35
+('santiagocruz@gmail.com', 'risastotal', 24), -- 36
+('diana_baez@gmail.com', 'momentosmagicos', 17), -- 37
+('josephina2023@gmail.com', 'dameunabrazo', 4), -- 38
+('nicolasalvador@gmail.com', 'caminosabiertos', 39), -- 39
+('marcelafernandez@gmail.com', 'superalegria', 40), -- 40
+('antonioquintero@gmail.com', 'somosfamilia', 41), -- 41
+('claracabrera@gmail.com', 'luzdelmundo', 42), -- 42
+('ricardoherrera@gmail.com', 'juntosporlavida', 43), -- 43
+('patricia_diaz@gmail.com', 'sueñoscolorados', 44), -- 44
+('sergioalonso@gmail.com', 'miaventura2023', 1), -- 45
+('valentinajimenez@gmail.com', 'mimundomagico', 2), -- 46
+('jaime_perez@gmail.com', 'felizcomounaava', 47), -- 47
+('martinrojas@gmail.com', 'luzdetranquilidad', 48), -- 48
+('adriana_morales@gmail.com', 'unavidaentera', 17), -- 49
+('luisarmando@gmail.com', 'elcaminodelrey', 20); -- 50
 
 insert into ventas (id_cliente, id_empleado, fecha_venta, descuento, total) values
 (1, 1, '2022-02-18', 15, 100.00), -- 1 *
@@ -1200,7 +1199,7 @@ insert into detalles_ventas(id_venta, id_producto, cantidad, precio_unitario) va
 (49, 32, 1, 85.00), -- 63 *
 (50, 85, 1, 14.00); -- 64 *
 
-INSERT INTO detalles_ventas_online(id_venta_online,id_direccion) VALUES
+INSERT INTO detalles_ventas_online(id_venta_online,id_producto) VALUES
 (15, 15), -- 1
 (23, 23), -- 2
 (33, 33), -- 3
@@ -1211,7 +1210,7 @@ INSERT INTO detalles_ventas_online(id_venta_online,id_direccion) VALUES
 (23, 23), -- 8
 (44, 44), -- 9 
 (37, 37), -- 10 
-(18, 18),  -- 11
+(18, 118),  -- 11
 (27, 27),   -- 12
 (36, 36), -- 13
 (42, 42), -- 14
@@ -1229,12 +1228,12 @@ INSERT INTO detalles_ventas_online(id_venta_online,id_direccion) VALUES
 (48, 48),  -- 26
 (10, 10),   -- 27
 (35, 35), -- 28
-(43, 43),  -- 29
+(43, 143),  -- 29
 (17, 17),  -- 30
 (25, 25), -- 31
 (39, 39), -- 32
 (47, 47), -- 33
-(26, 26),  -- 34
+(26, 126),  -- 34
 (13, 13),  -- 35
 (20, 20), -- 36
 (4, 4),    -- 37
@@ -1242,11 +1241,11 @@ INSERT INTO detalles_ventas_online(id_venta_online,id_direccion) VALUES
 (40, 40),  -- 39
 (29, 29), -- 40
 (8, 8),   -- 41
-(15, 15),  -- 42
+(15, 115),  -- 42
 (46, 46), -- 43
 (24, 24), -- 44
 (2, 2),  -- 45
-(38, 38), -- 46
+(38, 138), -- 46
 (31, 31), -- 47
 (32, 32),   -- 48
 (21, 21), -- 49
@@ -1545,7 +1544,7 @@ INSERT INTO facturacion (id_venta, fecha_factura, total) VALUES
 (14, '2022-12-14', 210.00),
 (15, '2024-01-06', 95.00),
 (16, '2022-10-27', 140.00),
-(17, '2023-02-29', 330.00),
+(17, '2023-02-27', 330.00),
 (18, '2024-03-20', 175.00),
 (19, '2022-05-04', 200.00),
 (20, '2023-07-19', 85.00),
@@ -1841,56 +1840,56 @@ INSERT INTO envios (id_venta_online, fecha_envio, fecha_entrega_estimada, estado
 (50, '2024-06-11', '2024-06-14', 'entregado', 1);
 
 INSERT INTO promociones (nombre, descripcion, fecha_inicio, fecha_fin, descuento) VALUES
-("Halloween parejas", "Promoción para parejas en Halloween", "2024-10-25", "2024-11-02", "15%"), -- 1
-("Fiesta de Disfraces Infantil", "Descuentos en disfraces para niños", "2024-11-01", "2024-11-08", "20%"), -- 2
-("Carnaval de Colores", "Disfraces vibrantes con un 25% de descuento", "2025-02-10", "2025-02-17", "25%"), -- 3
-("Regreso a Clases Creativas", "Descuentos en disfraces escolares", "2025-08-01", "2025-08-08", "15%"), -- 4
-("Día de los Muertos", "Celebra con trajes tradicionales al 20% de descuento", "2025-10-25", "2025-11-01", "20%"), -- 5
-("Fiesta de Fin de Año", "Descuentos en disfraces festivos", "2024-12-28", "2025-01-04", "30%"), -- 6
-("Promoción de Carnaval", "Disfraces para el carnaval con 15% de descuento", "2025-02-15", "2025-02-22", "15%"), -- 7
-("Halloween para Mascotas", "Disfraces para tus mascotas al 10% de descuento", "2025-10-10", "2025-10-17", "10%"), -- 8
-("Verano de Disfraces", "Descuentos en disfraces de verano", "2025-06-15", "2025-06-22", "25%"), -- 9
-("Día de la Independencia", "Disfraces patrióticos con 20% de descuento", "2025-09-01", "2025-09-08", "20%"), -- 10
-("Fiesta de Disfraces Retro", "Revive las épocas con un 15% de descuento", "2025-03-01", "2025-03-08", "15%"), -- 11
-("Promoción de Navidad", "Disfraces navideños con 20% de descuento", "2025-12-15", "2025-12-22", "20%"), -- 12
-("Fiesta de Disfraces de Cine", "Descuentos en trajes de tus películas favoritas", "2025-05-01", "2025-05-08", "25%"), -- 13
-("Halloween de Superhéroes", "Disfraces de superhéroes con 20% de descuento", "2025-10-01", "2025-10-08", "20%"), -- 14
-("Día de San Valentín", "Disfraces románticos con 15% de descuento", "2025-02-07", "2025-02-14", "15%"), -- 15
-("Halloween de Fantasmas", "Disfraces espectrales con un 15% de descuento", "2025-10-10", "2025-10-17", "15%"), -- 16
-("Fiesta de Disfraces de Épocas", "Descuentos en trajes históricos", "2025-03-15", "2025-03-22", "25%"), -- 17
-("Navidad de Personajes", "Disfraces de personajes navideños al 20%", "2025-12-20", "2025-12-27", "20%"), -- 18
-("Fiesta de Disfraces de Música", "Descuentos en trajes de íconos musicales", "2025-07-10", "2025-07-17", "30%"), -- 19
-("Halloween de Cuento de Hadas", "Disfraces de cuentos al 20% de descuento", "2025-10-01", "2025-10-08", "20%"), -- 20
-("Descuentos de Otoño", "Descuentos en trajes otoñales", "2025-09-15", "2025-09-22", "15%"), -- 21
-("Día de los Abuelos", "Disfraces vintage para abuelos al 10%", "2025-07-26", "2025-08-02", "10%"), -- 22
-("Fiesta de Disfraces de Deportes", "Descuentos en trajes deportivos", "2025-06-01", "2025-06-08", "15%"), -- 23
-("Halloween de Ciencia Ficción", "Descuentos en disfraces futuristas", "2025-10-15", "2025-10-22", "25%"), -- 24
-("Fiesta de Disfraces Temáticos", "Descuentos en disfraces temáticos", "2025-11-10", "2025-11-17", "20%"), -- 25
-("Día de San Patricio", "Descuentos en disfraces verdes", "2025-03-10", "2025-03-17", "15%"), -- 26
-("Carnaval de Disfraces de Animales", "Disfraces de animales al 20%", "2025-02-15", "2025-02-22", "20%"), -- 27
-("Fiesta de Disfraces de Piratas", "Descuentos en trajes de piratas", "2025-09-20", "2025-09-27", "25%"), -- 28
-("Día de la Tierra", "Disfraces ecológicos con 15% de descuento", "2025-04-22", "2025-04-29", "15%"), -- 29
-("Halloween de Cómics", "Descuentos en trajes de cómics", "2025-10-05", "2025-10-12", "20%"), -- 30
-("Fiesta de Disfraces del Espacio", "Descuentos en trajes espaciales", "2025-08-10", "2025-08-17", "25%"), -- 31
-("Halloween de Estrellas", "Disfraces de celebridades con 20% de descuento", "2025-10-12", "2025-10-19", "20%"), -- 32
-("Promoción de Otoño", "Descuentos en trajes de otoño", "2025-09-01", "2025-09-08", "15%"), -- 33
-("Fiesta de Disfraces de Magia", "Descuentos en trajes de magos y brujas", "2025-03-20", "2025-03-27", "30%"), -- 34
-("Fiesta de Disfraces de Historia", "Descuentos en trajes históricos", "2025-07-01", "2025-07-08", "25%"), -- 35
-("Halloween de Espantos", "Descuentos en trajes de criaturas espeluznantes", "2025-10-15", "2025-10-22", "20%"), -- 36
-("Fiesta de Disfraces de Viaje", "Descuentos en trajes de diferentes culturas", "2025-08-15", "2025-08-22", "15%"), -- 37
-("Fiesta de Disfraces de Juegos", "Descuentos en trajes de personajes de juegos", "2025-05-05", "2025-05-12", "20%"), -- 38
-("Halloween de Ilusión", "Disfraces ópticos con 15% de descuento", "2025-10-05", "2025-10-12", "15%"), -- 39
-("Promoción de Primavera", "Descuentos en trajes primaverales", "2025-04-01", "2025-04-08", "20%"), -- 40
-("Fiesta de Disfraces de Robots", "Descuentos en trajes robóticos", "2025-05-15", "2025-05-22", "25%"), -- 41
-("Halloween de Frío", "Descuentos en disfraces de invierno", "2025-10-20", "2025-10-27", "15%"), -- 42
-("Fiesta de Disfraces de Futuro", "Descuentos en trajes futuristas", "2025-06-05", "2025-06-12", "20%"), -- 43
-("Día del Niño", "Descuentos en trajes infantiles al 10%", "2025-04-15", "2025-04-22", "10%"), -- 44
-("Fiesta de Disfraces de Verano", "Descuentos en trajes de verano", "2025-06-20", "2025-06-27", "20%"), -- 45
-("Promoción de Octubre", "Descuentos en trajes de Halloween anticipados", "2025-10-01", "2025-10-08", "15%"), -- 46
-("Halloween de Fantasía", "Descuentos en trajes de fantasía", "2025-10-05", "2025-10-12", "25%"), -- 47
-("Fiesta de Disfraces de Videojuegos", "Descuentos en trajes de personajes de videojuegos", "2025-05-10", "2025-05-17", "20%"), -- 48
-("Halloween de Terror", "Descuentos en trajes de terror clásico", "2025-10-10", "2025-10-17", "30%"), -- 49
-("Día de los Disfraces Locos", "Descuentos en trajes extravagantes", "2025-04-30", "2025-05-07", "15%"); -- 50
+("Halloween parejas", "Promoción para parejas en Halloween", "2024-10-25", "2024-11-02", 15), -- 1
+("Fiesta de Disfraces Infantil", "Descuentos en disfraces para niños", "2024-11-01", "2024-11-08", 20), -- 2
+("Carnaval de Colores", "Disfraces vibrantes con un 25% de descuento", "2025-02-10", "2025-02-17", 25), -- 3
+("Regreso a Clases Creativas", "Descuentos en disfraces escolares", "2025-08-01", "2025-08-08", 15), -- 4
+("Día de los Muertos", "Celebra con trajes tradicionales al 20% de descuento", "2025-10-25", "2025-11-01", 20), -- 5
+("Fiesta de Fin de Año", "Descuentos en disfraces festivos", "2024-12-28", "2025-01-04", 30), -- 6
+("Promoción de Carnaval", "Disfraces para el carnaval con 15% de descuento", "2025-02-15", "2025-02-22", 15), -- 7
+("Halloween para Mascotas", "Disfraces para tus mascotas al 10% de descuento", "2025-10-10", "2025-10-17", 10), -- 8
+("Verano de Disfraces", "Descuentos en disfraces de verano", "2025-06-15", "2025-06-22", 25), -- 9
+("Día de la Independencia", "Disfraces patrióticos con 20% de descuento", "2025-09-01", "2025-09-08", 20), -- 10
+("Fiesta de Disfraces Retro", "Revive las épocas con un 15% de descuento", "2025-03-01", "2025-03-08", 15), -- 11
+("Promoción de Navidad", "Disfraces navideños con 20% de descuento", "2025-12-15", "2025-12-22", 20), -- 12
+("Fiesta de Disfraces de Cine", "Descuentos en trajes de tus películas favoritas", "2025-05-01", "2025-05-08", 25), -- 13
+("Halloween de Superhéroes", "Disfraces de superhéroes con 20% de descuento", "2025-10-01", "2025-10-08", 20), -- 14
+("Día de San Valentín", "Disfraces románticos con 15% de descuento", "2025-02-07", "2025-02-14", 15), -- 15
+("Halloween de Fantasmas", "Disfraces espectrales con un 15% de descuento", "2025-10-10", "2025-10-17", 15), -- 16
+("Fiesta de Disfraces de Épocas", "Descuentos en trajes históricos", "2025-03-15", "2025-03-22", 25), -- 17
+("Navidad de Personajes", "Disfraces de personajes navideños al 20%", "2025-12-20", "2025-12-27", 20), -- 18
+("Fiesta de Disfraces de Música", "Descuentos en trajes de íconos musicales", "2025-07-10", "2025-07-17", 30), -- 19
+("Halloween de Cuento de Hadas", "Disfraces de cuentos al 20% de descuento", "2025-10-01", "2025-10-08", 20), -- 20
+("Descuentos de Otoño", "Descuentos en trajes otoñales", "2025-09-15", "2025-09-22", 15), -- 21
+("Día de los Abuelos", "Disfraces vintage para abuelos al 10%", "2025-07-26", "2025-08-02", 10), -- 22
+("Fiesta de Disfraces de Deportes", "Descuentos en trajes deportivos", "2025-06-01", "2025-06-08", 15), -- 23
+("Halloween de Ciencia Ficción", "Descuentos en disfraces futuristas", "2025-10-15", "2025-10-22", 25), -- 24
+("Fiesta de Disfraces Temáticos", "Descuentos en disfraces temáticos", "2025-11-10", "2025-11-17", 20), -- 25
+("Día de San Patricio", "Descuentos en disfraces verdes", "2025-03-10", "2025-03-17", 15), -- 26
+("Carnaval de Disfraces de Animales", "Disfraces de animales al 20%", "2025-02-15", "2025-02-22", 20), -- 27
+("Fiesta de Disfraces de Piratas", "Descuentos en trajes de piratas", "2025-09-20", "2025-09-27", 25), -- 28
+("Día de la Tierra", "Disfraces ecológicos con 15% de descuento", "2025-04-22", "2025-04-29", 15), -- 29
+("Halloween de Cómics", "Descuentos en trajes de cómics", "2025-10-05", "2025-10-12", 20), -- 30
+("Fiesta de Disfraces del Espacio", "Descuentos en trajes espaciales", "2025-08-10", "2025-08-17", 25), -- 31
+("Halloween de Estrellas", "Disfraces de celebridades con 20% de descuento", "2025-10-12", "2025-10-19", 20), -- 32
+("Promoción de Otoño", "Descuentos en trajes de otoño", "2025-09-01", "2025-09-08", 15), -- 33
+("Fiesta de Disfraces de Magia", "Descuentos en trajes de magos y brujas", "2025-03-20", "2025-03-27", 30), -- 34
+("Fiesta de Disfraces de Historia", "Descuentos en trajes históricos", "2025-07-01", "2025-07-08", 25), -- 35
+("Halloween de Espantos", "Descuentos en trajes de criaturas espeluznantes", "2025-10-15", "2025-10-22", 20), -- 36
+("Fiesta de Disfraces de Viaje", "Descuentos en trajes de diferentes culturas", "2025-08-15", "2025-08-22", 15), -- 37
+("Fiesta de Disfraces de Juegos", "Descuentos en trajes de personajes de juegos", "2025-05-05", "2025-05-12", 20), -- 38
+("Halloween de Ilusión", "Disfraces ópticos con 15% de descuento", "2025-10-05", "2025-10-12", 15), -- 39
+("Promoción de Primavera", "Descuentos en trajes primaverales", "2025-04-01", "2025-04-08", 20), -- 40
+("Fiesta de Disfraces de Robots", "Descuentos en trajes robóticos", "2025-05-15", "2025-05-22", 25), -- 41
+("Halloween de Frío", "Descuentos en disfraces de invierno", "2025-10-20", "2025-10-27", 15), -- 42
+("Fiesta de Disfraces de Futuro", "Descuentos en trajes futuristas", "2025-06-05", "2025-06-12", 20), -- 43
+("Día del Niño", "Descuentos en trajes infantiles al 10%", "2025-04-15", "2025-04-22", 10), -- 44
+("Fiesta de Disfraces de Verano", "Descuentos en trajes de verano", "2025-06-20", "2025-06-27", 20), -- 45
+("Promoción de Octubre", "Descuentos en trajes de Halloween anticipados", "2025-10-01", "2025-10-08", 15), -- 46
+("Halloween de Fantasía", "Descuentos en trajes de fantasía", "2025-10-05", "2025-10-12", 25), -- 47
+("Fiesta de Disfraces de Videojuegos", "Descuentos en trajes de personajes de videojuegos", "2025-05-10", "2025-05-17", 20), -- 48
+("Halloween de Terror", "Descuentos en trajes de terror clásico", "2025-10-10", "2025-10-17", 30), -- 49
+("Día de los Disfraces Locos", "Descuentos en trajes extravagantes", "2025-04-30", "2025-05-07", 15); -- 50
 
 INSERT INTO productos_promocion (id_producto, id_promocion) VALUES
 (1, 1),  -- 1
