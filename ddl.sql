@@ -269,12 +269,12 @@ create table if not exists facturacion ( -- d
 
 create table if not exists envios( -- d
     id_envio int primary key auto_increment,
-    id_venta int,
+    id_venta_online int,
     fecha_envio date,
     fecha_entrega_estimada date,
     estado_envio enum("pendiente", "en tránsito", "entregado", "devuelto"),
     id_direccion int,
-    foreign key (id_venta) references ventas(id_venta),
+    foreign key (id_venta_online) references ventas_online(id_venta_online),
     foreign key (id_direccion) references direcciones(id_direccion)
 );
 
