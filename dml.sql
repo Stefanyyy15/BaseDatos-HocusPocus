@@ -1150,3 +1150,108 @@ insert into detalles_ventas(id_venta, id_producto, cantidad, precio_unitario) va
 (48, 62, 1, 9.00), -- 62 *
 (49, 32, 1, 85.00), -- 63 *
 (50, 85, 1, 14.00); -- 64 *
+
+INSERT INTO proveedores (nombre_empresa, contacto, email, telefono) VALUES 
+('Textiles del Valle', 'Juan Pérez', 'juan.perez@textilesvalle.com', '555-0101'), -- 1
+('Maquillajes Glamour', 'Ana Sánchez', 'ana.sanchez@glamour.com', '555-0102'), -- 2
+('Utilería Creativa', 'Carlos Gómez', 'carlos.gomez@uticreativa.com', '555-0103'), -- 3
+('Telas y Estampados', 'Laura Ruiz', 'laura.ruiz@telasyestampados.com', '555-0104'), -- 4
+('Belleza Natural', 'Sofía Martínez', 'sofia.martinez@bellezanatural.com', '555-0105'), -- 5
+('Accesorios Únicos', 'Miguel Torres', 'miguel.torres@accesoriosunicos.com', '555-0106'), -- 6
+('Textiles Modernos', 'Patricia López', 'patricia.lopez@textilesmodernos.com', '555-0107'), -- 7
+('Estilo de Maquillaje', 'Roberto Díaz', 'roberto.diaz@estilomaquillaje.com', '555-0108'), -- 8
+('Utilería y Más', 'María Fernández', 'maria.fernandez@utileriamas.com', '555-0109'), -- 9
+('Telas y Colores', 'Javier Hernández', 'javier.hernandez@telasycolores.com', '555-0110'), -- 10
+('Maquillaje Esencial', 'Claudia Ortega', 'claudia.ortega@maquillajeesencial.com', '555-0111'), -- 11
+('Artículos de Oficina', 'Fernando Jiménez', 'fernando.jimenez@articulosoficina.com', '555-0112'), -- 12
+('Fibras Textiles', 'Verónica Castro', 'veronica.castro@fibrastextiles.com', '555-0113'), -- 13
+('Maquillaje Radiante', 'Natalia Ramírez', 'natalia.ramirez@maquillajeradiante.com', '555-0114'), -- 14
+('Utilería S.A.', 'Diego Peña', 'diego.pena@utileriasa.com', '555-0115'), -- 15
+('Telas Elegantes', 'Gabriela Silva', 'gabriela.silva@telaselegantes.com', '555-0116'), -- 16
+('Cosméticos de Lujo', 'Elena Mendoza', 'elena.mendoza@cosmeticosdelujo.com', '555-0117'), -- 17
+('Proveedores de Utilería', 'Victor Salas', 'victor.salas@proveedoresutileria.com', '555-0118'), -- 18
+('Textiles de Calidad', 'Mariana Torres', 'mariana.torres@textilescalidad.com', '555-0119'), -- 19
+('Maquillaje Para Todos', 'Pablo Núñez', 'pablo.nunez@maquillajeparatodos.com', '555-0120'), -- 20
+('Utilería Artística', 'Cristina Herrera', 'cristina.herrera@utialistic.com', '555-0121'), -- 21
+('Telas Innovadoras', 'Samuel Vargas', 'samuel.vargas@telasinnovadoras.com', '555-0122'), -- 22
+('Maquillajes Creativos', 'Silvia López', 'silvia.lopez@maquillajescreativos.com', '555-0123'), -- 23
+('Artículos para Eventos', 'Rafael García', 'rafael.garcia@articuloseventos.com', '555-0124'), -- 24
+('Telas Naturales', 'Bárbara Gómez', 'barbara.gomez@telasnaturales.com', '555-0125'), -- 25
+('Cosméticos Innovadores', 'Andrés Torres', 'andres.torres@cosmeticosinnovadores.com', '555-0126'), -- 26
+('Utilería Integral', 'Jessica Morales', 'jessica.morales@utileriaintegral.com', '555-0127'), -- 27
+('Telas Exóticas', 'Adriana Córdova', 'adriana.cordova@telasexoticas.com', '555-0128'), -- 28
+('Maquillaje Único', 'Alfredo Delgado', 'alfredo.delgado@maquillajeunico.com', '555-0129'), -- 29
+('Artículos de Papelería', 'Patricia Romero', 'patricia.romero@articulospapeleria.com', '555-0130'), -- 30
+('Telas Básicas', 'Nicolás Salas', 'nicolas.salas@telasbasicas.com', '555-0131'), -- 31
+('Maquillaje Sutil', 'Lucía Herrera', 'lucia.herrera@maquillajesutil.com', '555-0132'), -- 32
+('Utilería Premium', 'Leonardo Álvarez', 'leonardo.alvarez@utileriapremium.com', '555-0133'), -- 33
+('Telas y Texturas', 'Sandra Castillo', 'sandra.castillo@telasytexturas.com', '555-0134'), -- 34
+('Maquillajes Divinos', 'Esteban Díaz', 'esteban.diaz@maquillajesdivinos.com', '555-0135'), -- 35
+('Proveedores de Papelería', 'Marta Ruiz', 'marta.ruiz@proveedorespapeleria.com', '555-0136'), -- 36
+('Telas para Moda', 'Hugo Martínez', 'hugo.martinez@telaspamoda.com', '555-0137'), -- 37
+('Maquillaje Natural', 'Carmen López', 'carmen.lopez@maquillajenatural.com', '555-0138'), -- 38
+('Utilería Express', 'Raúl Pérez', 'raul.perez@utileriaexpress.com', '555-0139'), -- 39
+('Telas de Fantasía', 'Luz Rodríguez', 'luz.rodriguez@telasdefantasia.com', '555-0140'), -- 40
+('Cosméticos Diversos', 'Ángel Torres', 'angel.torres@cosmeticosdiversos.com', '555-0141'), -- 41
+('Utilería Total', 'Rocío Fernández', 'rocio.fernandez@utileriatotal.com', '555-0142'), -- 42
+('Telas de Algodón', 'Felipe Salazar', 'felipe.salazar@telasdealgodon.com', '555-0143'), -- 43
+('Maquillaje de Fantasía', 'Sonia Vargas', 'sonia.vargas@maquillajefantasia.com', '555-0144'), -- 44
+('Artículos de Estudio', 'Eduardo Romero', 'eduardo.romero@articulosestudio.com', '555-0145'), -- 45
+('Telas Artesanales', 'Ximena Pérez', 'ximena.perez@telasartesanales.com', '555-0146'), -- 46
+('Cosméticos Eco', 'Ricardo Hernández', 'ricardo.hernandez@cosmeticos eco.com', '555-0147'), -- 47
+('Utilería Diversificada', 'Gabriela Castro', 'gabriela.castro@utileriadiversificada.com', '555-0148'), -- 48
+('Telas para Niños', 'Fernando López', 'fernando.lopez@telasparaninos.com', '555-0149'), -- 49
+('Maquillaje Clásico', 'Claudia Díaz', 'claudia.diaz@maquillajeclasico.com', '555-0150'); -- 50
+
+INSERT INTO ordenes_compra (id_proveedor, fecha_orden, estado) VALUES 
+(1, '2024-01-15', 'entregado'), -- 1
+(4, '2024-02-20', 'pendiente'), -- 2
+(12, '2024-03-05', 'entregado'), -- 3
+(20, '2024-04-12', 'pendiente'), -- 4
+(7, '2024-05-15', 'entregado'), -- 5
+(25, '2024-06-10', 'pendiente'), -- 6
+(3, '2024-07-08', 'entregado'), -- 7
+(19, '2024-08-14', 'pendiente'), -- 8
+(15, '2024-09-21', 'entregado'), -- 9
+(9, '2024-01-30', 'pendiente'), -- 10
+(2, '2024-02-28', 'entregado'), -- 11
+(6, '2024-03-22', 'pendiente'), -- 12
+(21, '2024-04-05', 'entregado'), -- 13
+(14, '2024-05-27', 'pendiente'), -- 14
+(11, '2024-06-18', 'entregado'), -- 15
+(8, '2024-07-30', 'pendiente'), -- 16
+(5, '2024-08-09', 'entregado'), -- 17
+(24, '2024-09-17', 'pendiente'), -- 18
+(18, '2024-01-11', 'entregado'), -- 19
+(10, '2024-02-15', 'pendiente'), -- 20
+(23, '2024-03-25', 'entregado'), -- 21
+(17, '2024-04-19', 'pendiente'), -- 22
+(13, '2024-05-14', 'entregado'), -- 23
+(30, '2024-06-29', 'pendiente'), -- 24
+(16, '2024-07-23', 'entregado'), -- 25
+(29, '2024-08-12', 'pendiente'), -- 26
+(27, '2024-09-30', 'entregado'), -- 27
+(26, '2024-01-09', 'pendiente'), -- 28
+(22, '2024-02-22', 'entregado'), -- 29
+(15, '2024-03-10', 'pendiente'), -- 30
+(28, '2024-04-15', 'entregado'), -- 31
+(31, '2024-05-21', 'pendiente'), -- 32
+(32, '2024-06-01', 'entregado'), -- 33
+(33, '2024-07-05', 'pendiente'), -- 34
+(34, '2024-08-07', 'entregado'), -- 35
+(35, '2024-09-11', 'pendiente'), -- 36
+(36, '2024-01-28', 'entregado'), -- 37
+(37, '2024-02-17', 'pendiente'), -- 38
+(38, '2024-03-19', 'entregado'), -- 39
+(39, '2024-04-11', 'pendiente'), -- 40
+(40, '2024-05-09', 'entregado'), -- 41
+(41, '2024-06-21', 'pendiente'), -- 42
+(42, '2024-07-13', 'entregado'), -- 43
+(43, '2024-08-29', 'pendiente'), -- 44
+(44, '2024-09-07', 'entregado'), -- 45
+(45, '2024-01-26', 'pendiente'), -- 46
+(46, '2024-02-24', 'entregado'), -- 47
+(47, '2024-03-31', 'pendiente'), -- 48
+(48, '2024-04-29', 'entregado'), -- 49
+(49, '2024-05-17', 'pendiente'), -- 50
+(50, '2024-06-03', 'entregado'); -- 51
