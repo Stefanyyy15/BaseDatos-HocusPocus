@@ -816,13 +816,13 @@ INSERT INTO clientes (cedula, nombres, apellidos, email, telefono, fecha_nacimie
 ('1023456829', 'Santiago', 'Marín', 'santiago.marin@example.com', '3112345675', '1987-01-11'), -- 41
 ('1023456830', 'Claudia', 'Figueroa', 'claudia.figueroa@example.com', '3113456783', '1993-04-25'), -- 42
 ('1005327319', 'Adrian', "Ustariz", 'dxniel7328@gmail.com', '3173109599', '2002-03-18'), -- 43
-('1005327320', 'Sofia', 'Torres', 'sofia.torres@example.com', '3173109600', '1994-05-22'),
-('1005327321', 'Felipe', 'Ramirez', 'felipe.ramirez@example.com', '3173109601', '1990-07-15'),
-('1005327322', 'Camila', 'López', 'camila.lopez@example.com', '3173109602', '1995-09-08'),
-('1005327323', 'Luis', 'Hernandez', 'luis.hernandez@example.com', '3173109603', '1988-12-12'),
-('1005327324', 'Valentina', 'Pérez', 'valentina.perez@example.com', '3173109604', '1992-02-20'),
-('1005327325', 'Diego', 'Mendoza', 'diego.mendoza@example.com', '3173109605', '1985-11-30'),
-('1005327326', 'Natalia', 'Cordero', 'natalia.cordero@example.com', '3173109606', '1993-04-25');
+('1005327320', 'Sofia', 'Torres', 'sofia.torres@example.com', '3173109600', '1994-05-22'), -- 44
+('1005327321', 'Felipe', 'Ramirez', 'felipe.ramirez@example.com', '3173109601', '1990-07-15'), -- 45
+('1005327322', 'Camila', 'López', 'camila.lopez@example.com', '3173109602', '1995-09-08'), -- 46
+('1005327323', 'Luis', 'Hernandez', 'luis.hernandez@example.com', '3173109603', '1988-12-12'), -- 47
+('1005327324', 'Valentina', 'Pérez', 'valentina.perez@example.com', '3173109604', '1992-02-20'), -- 48
+('1005327325', 'Diego', 'Mendoza', 'diego.mendoza@example.com', '3173109605', '1985-11-30'), -- 49
+('1005327326', 'Natalia', 'Cordero', 'natalia.cordero@example.com', '3173109606', '1993-04-25'); -- 50
 
 INSERT INTO usuarios(correo, contraseña) VALUES
 ('juanito12@gmail.com', 'cucarachasunidas'), -- 1
@@ -980,3 +980,55 @@ INSERT INTO barrios(nombre, id_ciudad) VALUES
 ('El Oasis', 7), -- 48 (Bucaramanga)
 ('La Paz', 1), -- 49 (Bogotá)
 ('Cabecera', 7); -- 50
+
+insert into direcciones(id_cliente, tipo_via, direccion, indicaciones, codigo_postal, id_barrio) values
+(1, 'carrera', '20#110-69', 'Torre 2 apto 206', '6840004', 50), -- 1
+(2, 'calle', '45#23-56', 'Edificio Las Palmas', '110011', 1), -- 2
+(3, 'diagonal', '12#56-89', 'Frente al parque', '500001', 2), -- 3
+(4, 'transversal', '67#15-42', 'Casa esquinera', '760032', 3), -- 4
+(5, 'carrera', '32#9-21', 'Piso 4, Apto 302', '080002', 4), -- 5
+(6, 'calle', '23#56-78', 'Al lado del colegio', '130015', 5), -- 6
+(7, 'diagonal', '45#67-23', 'Casa blanca', '540001', 6), -- 7
+(8, 'transversal', '56#12-98', 'Edificio La Torre', '680003', 7), -- 8
+(9, 'carrera', '89#21-36', 'Apto 301', '660004', 8), -- 9
+(10, 'calle', '12#45-89', 'Conjunto Residencial san lorenzo', '470004', 9), -- 10
+(11, 'diagonal', '98#76-32', 'Torre B Apto 403', '730005', 10), -- 11
+(12, 'transversal', '67#21-87', 'Barrio San José', '170001', 11), -- 12
+(13, 'carrera', '45#32-56', 'Finca El Paraiso', '410002', 12), -- 13
+(14, 'calle', '23#56-43', 'Casa roja', '200003', 13), -- 14
+(15, 'diagonal', '67#98-45', 'Frente a la plaza', '190001', 14), -- 15
+(16, 'transversal', '12#34-67', 'Casa grande', '700001', 15), -- 16
+(17, 'carrera', '56#78-90', 'Edificio Oasis', '230004', 16), -- 17
+(18, 'calle', '21#56-78', 'Apto 502', '630001', 17), -- 18
+(19, 'diagonal', '34#89-12', 'Apto 403', '661002', 18), -- 19
+(20, 'transversal', '89#67-45', 'Torre 10', '150001', 19), -- 20
+(21, 'carrera', '21#34-65', 'Casa color azul', '051051', 20), -- 21
+(22, 'calle', '43#21-87', 'Apto 704', '880001', 21), -- 22
+(23, 'diagonal', '12#34-56', 'Barrio El Centro', '440001', 22), -- 23
+(24, 'transversal', '67#89-12', 'Casa blanca', '850001', 23), -- 24
+(25, 'carrera', '45#32-78', 'Conjunto residencial mardel', '270002', 24), -- 25
+(26, 'calle', '56#12-34', 'Apto 301', '880001', 25), -- 26
+(27, 'diagonal', '89#21-34', 'Casa amarilla quemada', '910001', 26), -- 27
+(28, 'transversal', '34#56-78', 'Finca Los Pinos', '500004', 27), -- 28
+(29, 'carrera', '12#45-67', 'Torre 2 Apto 101', '520001', 28), -- 29
+(30, 'calle', '67#21-89', 'Casa con jardín de girasoles', '763022', 29), -- 30
+(31, 'diagonal', '43#56-21', 'Frente al parque', '763040', 30), -- 31
+(32, 'transversal', '32#78-45', 'Edificio Las Brisas', '154001', 31), -- 32
+(33, 'carrera', '45#12-67', 'Conjunto La Arboleda', '152001', 32), -- 33
+(34, 'calle', '23#78-90', 'Apto 202', '687001', 33), -- 34
+(35, 'diagonal', '67#32-54', 'Casa en esquina', '205010', 34), -- 35
+(36, 'transversal', '12#89-34', 'Barrio El Centro', '470001', 35), -- 36
+(37, 'carrera', '89#34-12', 'Casa color verde', '470010', 36), -- 37
+(38, 'calle', '56#21-43', 'Edificio Las Torres', '860001', 37), -- 38
+(39, 'diagonal', '32#45-67', 'Casa amarilla', '684041', 38), -- 39
+(40, 'transversal', '23#78-90', 'Finca La Esperanza', '706010', 39), -- 40
+(41, 'carrera', '56#12-34', 'Casa color rojo', '813010', 40), -- 41
+(42, 'calle', '78#32-56', 'Torre 3 Apto 401', '540001', 41), -- 42
+(43, 'diagonal', '45#12-89', 'Edificio Santa María', '111121', 42), -- 43
+(44, 'transversal', '32#67-12', 'Casa frente a la plaza', '053840', 43), -- 44
+(45, 'carrera', '12#45-98', 'Apto 101', '250251', 44), -- 45
+(46, 'calle', '67#21-34', 'Edificio Panorama', '760003', 45), -- 46
+(47, 'diagonal', '21#43-87', 'Casa con piscina', '170013', 46), -- 47
+(48, 'transversal', '43#56-12', 'Apto 504', '250051', 47), -- 48
+(49, 'carrera', '45#12-78', 'Torre 1 Apto 201', '6840001', 48), -- 49
+(50, 'calle', '32#21-56', 'Casa blanca al lado de tienda', '762022', 49); -- 50
