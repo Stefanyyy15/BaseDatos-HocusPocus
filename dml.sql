@@ -211,26 +211,25 @@ INSERT INTO productos(nombre, descripcion, precio, id_categoria) VALUES
 ("Frascos de pócimas mágicas", "Frascos decorativos con etiquetas de pócimas mágicas", 12.00, 4), -- 179
 ("Mantel de gatos negros", "Mantel con diseño de gatos negros en diversas posiciones", 14.00, 4), -- 180
 ("Letrero de calaveras cruzadas", "Letrero metálico con calaveras cruzadas", 18.00, 4), -- 181
-("Cortinas de hojas otoñales", "Cortinas con impresión de hojas otoñales en tonos oscuros", 16.00, 4), -- 181
-("Luces led en forma de huesos", "Cadena de luces led con pequeñas figuras de huesos", 20.00, 4), -- 182
-("Búho decorativo de cerámica", "Figura decorativa de búho para mesas o estanterías", 25.00, 4), -- 183
-("Pared de castillo medieval", "Panel de pared decorativo con ladrillos estilo medieval", 35.00, 4), -- 184
-("Estantería de ataúd", "Estantería en forma de ataúd vertical para libros o decoraciones", 50.00, 4), -- 185
-("Mesa en forma de lápida", "Mesa pequeña con tapa en forma de lápida", 65.00, 4), -- 186
-("Mural de noche de luna llena", "Mural gigante con una escena nocturna de luna llena", 55.00, 4), -- 187
-("Adornos colgantes de ojos", "Ojos colgantes de plástico para una decoración terrorífica", 15.00, 4), -- 188
-("Caja decorativa con vampiros", "Caja decorativa con ilustraciones de vampiros", 10.00, 4), -- 189
-("Hojas secas artificiales", "Hojas artificiales con aspecto seco para decoraciones", 8.00, 4), -- 190
-("Poster de Frankenstein", "Poster clásico de la película Frankenstein", 5.00, 4), -- 191
-("Cartel de advertencia No pasar", "Cartel decorativo que advierte No pasar", 7.00, 4), -- 192
-("Globos en forma de araña", "Globos decorados con figuras de arañas", 8.00, 4),  -- 193
-("Alfombra en forma de murciélago", "Alfombra decorativa con diseño de murciélago", 22.00, 4), -- 194
-("Espejo con marco de cráneos", "Espejo decorativo con marco de cráneos en relieve", 35.00, 4), -- 195
-("Decoración de ventanas con fantasmas", "Ventanas decorativas con fantasmas translúcidos", 12.00, 4), -- 196
-("Candelabro en forma de manos esqueléticas", "Candelabro con diseño de manos esqueléticas sosteniendo las velas", 28.00, 4), -- 197
-("Señalizacion casa embrujada", "Cartel de señalización que indica una Casa embrujada", 6.00, 4), -- 198
-("Tarro con calabazas en miniatura", "Tarro decorativo con mini calabazas para mesa", 10.00, 4), -- 199
-("Luces led amarillas", "Luces led amarillas con fines decorativos", 10.00, 4); -- 200
+("Cortinas de hojas otoñales", "Cortinas con impresión de hojas otoñales en tonos oscuros", 16.00, 4), -- 182
+("Luces led en forma de huesos", "Cadena de luces led con pequeñas figuras de huesos", 20.00, 4), -- 183
+("Búho decorativo de cerámica", "Figura decorativa de búho para mesas o estanterías", 25.00, 4), -- 184
+("Pared de castillo medieval", "Panel de pared decorativo con ladrillos estilo medieval", 35.00, 4), -- 185
+("Estantería de ataúd", "Estantería en forma de ataúd vertical para libros o decoraciones", 50.00, 4), -- 186
+("Mesa en forma de lápida", "Mesa pequeña con tapa en forma de lápida", 65.00, 4), -- 187
+("Mural de noche de luna llena", "Mural gigante con una escena nocturna de luna llena", 55.00, 4), -- 188
+("Adornos colgantes de ojos", "Ojos colgantes de plástico para una decoración terrorífica", 15.00, 4), -- 189
+("Caja decorativa con vampiros", "Caja decorativa con ilustraciones de vampiros", 10.00, 4), -- 190
+("Hojas secas artificiales", "Hojas artificiales con aspecto seco para decoraciones", 8.00, 4), -- 191
+("Poster de Frankenstein", "Poster clásico de la película Frankenstein", 5.00, 4), -- 192
+("Cartel de advertencia No pasar", "Cartel decorativo que advierte No pasar", 7.00, 4), -- 193
+("Globos en forma de araña", "Globos decorados con figuras de arañas", 8.00, 4),  -- 194
+("Alfombra en forma de murciélago", "Alfombra decorativa con diseño de murciélago", 22.00, 4), -- 195
+("Espejo con marco de cráneos", "Espejo decorativo con marco de cráneos en relieve", 35.00, 4), -- 196
+("Decoración de ventanas con fantasmas", "Ventanas decorativas con fantasmas translúcidos", 12.00, 4), -- 197
+("Candelabro en forma de manos esqueléticas", "Candelabro con diseño de manos esqueléticas sosteniendo las velas", 28.00, 4), -- 198
+("Señalizacion casa embrujada", "Cartel de señalización que indica una Casa embrujada", 6.00, 4), -- 199
+("Tarro con calabazas en miniatura", "Tarro decorativo con mini calabazas para mesa", 10.00, 4); -- 200
 
 insert into tipos_decoracion(nombre) values
 ("manteles"), -- 1
@@ -256,35 +255,108 @@ insert into tipos_decoracion(nombre) values
 ("tarros y frascos"); -- 21
 
 insert into decoraciones(tamaño, medida, id_producto, id_tipos_decoracion) values
-(15.2, "m", 51, 1), -- 1
-(10.2, "m", 52, 1), -- 2
-(10, "m", 53, 4), -- 3
-(25.3, "cm", 54, 13), -- 4
-(25.4, "cm", 55, 13), -- 5
-(5.2, "m", 56, 7), -- 6
-(2.1, "m", 57, 9), -- 7
-(7.2, "m", 58, 8), -- 8
-(2.1, "cm", 59, 15), -- 9
-(4.6, "m", 60, 16); -- 10
+(15.2, "m", 151, 1), -- 1
+(10.2, "m", 152, 1), -- 2
+(10, "m", 153, 4), -- 3
+(25.3, "cm", 154, 13), -- 4
+(25.4, "cm", 155, 13), -- 5
+(5.2, "m", 156, 7), -- 6
+(2.1, "m", 157, 9), -- 7
+(7.2, "m", 158, 8), -- 8
+(2.1, "cm", 159, 15), -- 9
+(4.6, "m", 160, 16), -- 10
+(15.2, "m", 161, 1), -- 11
+(25.1, "cm", 162, 2), -- 12
+(1.1, "m", 163, 3), -- 13
+(1.2, "m", 164, 4), -- 14
+(4.2, "m", 165, 5), -- 15
+(2, "m", 166, 6), -- 16
+(1.5, "m", 167, 7), -- 17
+(5.2, "m", 168, 8), -- 18
+(12.1, "m", 169, 9), -- 19
+(5.3, "cm", 170, 10), -- 20
+(12.1, "cm", 171, 11), -- 21
+(5, "m", 172, 12), -- 22
+(2.5, "m", 173, 13), -- 23
+(3.8, "cm", 174, 14), -- 24
+(4.2, "m", 175, 15), -- 25
+(3.3, "cm", 176, 16), -- 26
+(3.8, "m", 177, 17), -- 27
+(4.5, "m", 178, 18), -- 28
+(8.2, "cm", 179, 5), -- 29
+(12.3, "cm", 180, 1), -- 30
+(25.4, "cm", 181, 2), -- 31
+(15.2, "cm", 182, 3), -- 32
+(8.2, "m", 183, 4), -- 33
+(2.5, "m", 184, 5), -- 34
+(24.5, "cm", 185, 6), -- 35
+(35.2, "cm", 186, 7), -- 36
+(5.6, "m", 187, 8), -- 37
+(3.7, "m", 188, 9), -- 38
+(5.4, "m", 189, 10), -- 39
+(15.7, "cm", 190, 11), -- 40
+(21.5, "cm", 191, 12), -- 41
+(23,"m", 192, 13), -- 42
+(2.8, "m", 193, 14), -- 43
+(3.8, "m", 194, 15), -- 44
+(5.7, "cm", 195, 16), -- 45
+(24.3, "cm", 196, 17), -- 46
+(12.5, "cm", 197, 18), -- 47
+(12.9, "cm", 198, 19), -- 48
+(24.2, "cm", 199, 20), -- 49
+(8.5, "m", 200, 21); -- 50
 
 INSERT INTO disfraces(id_producto, id_subcategoria, talla, genero, precio_alquiler) VALUES
-(1, 1, "s", "hombre", "30.00"),
-(2, 2, "xs", "mujer", "30.00"),
-(3, 7, "m", "hombre", "30.00"),
-(4, 6, "l", "unisex", "30.00"),
-(5, 11, "xl", "unisex", "30.00"),
-(6, 1, "s", "unisex", "30.00"),
-(7, 1, "s", "mujer", "30.00"),
-(8, 6, "l", "hombre", "30.00"),
-(9, 12, "m", "hombre", "30.00"),
-(10, 13, "m", "unisex", "30.00"),
-(11, 5, "s", "hombre", "30.00"),
-(12, 9, "m", "mujer", "30.00"),
-(13, 13, "xl", "mujer", "30.00"),
-(14, 8, "xl", "unisex", "30.00"),
-(15, 16, "s", "unisex", "30.00"),
-(16, 12, "xs", "hombre", "30.00"),
-(17, 13, "l", "mujer", "30.00");
+(1, 1, "s", "hombre", 30.00), -- 1
+(2, 2, "xs", "mujer", 30.00), -- 2
+(3, 7, "m", "hombre", 30.00), -- 3
+(4, 6, "l", "unisex", 30.00), -- 4
+(5, 11, "xl", "unisex", 30.00), -- 5
+(6, 1, "s", "unisex", 30.00), -- 6
+(7, 1, "s", "mujer", 30.00), -- 7
+(8, 6, "l", "hombre", 30.00), -- 8
+(9, 12, "m", "hombre", 30.00), -- 9
+(10, 13, "m", "unisex", 30.00), -- 10
+(11, 5, "s", "hombre", 30.00), -- 11
+(12, 9, "m", "mujer", 30.00), -- 12
+(13, 13, "xl", "mujer", 30.00), -- 13
+(14, 8, "xl", "unisex", 30.00), -- 14
+(15, 16, "s", "unisex", 30.00), -- 15
+(16, 12, "xs", "hombre", 30.00), -- 16
+(17, 13, "l", "mujer", 30.00), -- 17
+(18, 13, "l", "hombre", 30.00), -- 18
+(19, 8, "s", "unisex", 30.00), -- 19
+(20, 1, "m", "unisex", 30.00), -- 20
+(21, 2, "xs", "mujer", 30.00), -- 21
+(22, 5, "l", "hombre", 30.00), -- 22
+(23, 4, "l", "hombre", 30.00), -- 23
+(24, 8, "s", "unisex", 30.00), -- 24
+(25, 10, "l", "hombre", 30.00), -- 25
+(26, 8, "l", "unisex", 30.00), -- 26
+(27, 10, "m", "hombre", 30.00), -- 27
+(28, 8, "l", "mujer", 30.00), -- 28
+(29, 4, "xl", "hombre", 40.00), -- 29
+(30, 6, "s", "mujer", 30.00), -- 30
+(31, 7, "m", "hombre", 40.00), -- 31
+(32, 9, "xl", "unisex", 30.00), -- 32
+(33, 4, "xl", "hombre", 30.00), -- 33
+(34, 4, "s", "hombre", 30.00), -- 34
+(35, 7, "xl", "mujer", 30.00), -- 35
+(36, 16, "m", "unisex", 30.00), -- 36
+(37, 4, "xl", "hombre", 40.00), -- 37
+(38, 4, "xl", "hombre", 40.00), -- 38
+(39, 14, "l", "hombre", 40.00), -- 39
+(40, 13, "l", "unisex", 30.00), -- 40
+(41, 14, "s", "hombre", 30.00), -- 41
+(42, 15, "m", "unisex", 30.00), -- 42
+(43, 9, "xs", "mujer", 30.00), -- 43
+(44, 7, "s", "hombre", 30.00), -- 44
+(45, 5, "l", "unisex", 30.00), -- 45
+(46, 5, "s", "mujer", 30.00), -- 46
+(47, 7, "l", "hombre", 30.00), -- 47
+(48, 14, "s", "hombre", 30.00), -- 48
+(49, 5, "s", "hombre", 30.00), -- 49
+(50, 7, "m", "hombre", 30.00); -- 50
 
 INSERT INTO tipos_accesorios (nombre) VALUES
 ("mascaras"), -- 1
@@ -316,19 +388,57 @@ INSERT INTO tipos_accesorios (nombre) VALUES
 ("faldas"), -- 26
 ("gorros"); -- 27
 
-insert into accesorios (id_tipo_accesorio, id_producto) values
-(7, 18), -- antifaz carnaval
-(3, 19), -- sombrero pirata
-(3, 20), -- sombrero vaquero
-(2, 21), -- capa vampiro
-(2, 22), -- capa roja superheroe
-(4, 23), -- diadema unicornio
-(2, 24), -- capa de mago
-(4, 25), -- diadema de flores
-(6, 26), -- cinturon de guerrero
-(3, 27), -- sombrero de doctor
-(2, 28), -- capa roja
-(27, 29); -- gorro de elfo
+INSERT INTO accesorios (id_tipo_accesorio, id_producto) VALUES
+(7, 51), -- 1
+(3, 52), -- 2
+(3, 53), -- 3
+(2, 54), -- 4
+(2, 55), -- 5
+(4, 56), -- 6
+(2, 57), -- 7
+(4, 58), -- 8
+(6, 59), -- 9
+(3, 60), -- 10
+(2, 61), -- 12
+(27, 62), -- 12
+(1, 63), -- 13
+(2, 64), -- 14
+(3, 65), -- 15
+(4, 66), -- 16
+(5, 67), -- 17
+(6, 68), -- 18
+(1, 69), -- 19
+(8, 70), -- 20
+(9, 71), -- 21
+(10, 72), -- 22
+(11, 73), -- 23
+(12, 74), -- 24
+(13, 75), -- 25
+(14, 76), -- 26
+(15, 77), -- 27
+(16, 78), -- 28
+(17, 79), -- 29
+(18, 80), -- 30
+(19, 81), -- 31
+(21, 82), -- 32
+(23, 83), -- 33
+(26, 84), -- 34
+(27, 85), -- 35
+(24, 86), -- 36
+(26, 87), -- 37
+(20, 88), -- 38
+(21, 89), -- 39
+(16, 90), -- 40
+(4, 91), -- 41
+(3, 92), -- 42
+(2, 93), -- 43
+(11, 94), -- 44
+(5, 95), -- 45
+(8, 96), -- 46
+(3, 97), -- 47
+(18, 98), -- 48
+(10, 99), -- 49
+(22, 100); -- 50
 
 INSERT INTO tipos_maquillaje (nombre) VALUES
 ("sombras de ojos"), -- 1
@@ -353,82 +463,261 @@ INSERT INTO tipos_maquillaje (nombre) VALUES
 ("pegamento para pestañas postizas"), -- 20
 ("uñas postizas"); -- 21
 
-INSERT INTO maquillajes (marca, id_producto, id_tipo_maquillaje) VALUES 
-("Maybelline", 30, 1), -- Sombra de ojos brillante
-("L'Oreal", 31, 1), -- Sombra de ojos mate
-("Urban Decay", 32, 1), -- Sombra de ojos metálica
-("NYX", 33, 1), -- Sombra de ojos en crema
-("Maybelline", 34, 2), -- Delineador líquido
-("L'Oreal", 35, 2), -- Delineador en gel
-("MAC", 36, 3), -- Labial mate
-("Revlon", 37, 3), -- Labial brillante
-("Urban Decay", 38, 3), -- Labial de larga duración
-("Kryolan", 39, 4), -- Pintura facial
-("Too Faced", 40, 5), -- Glitter facial
-("MAC", 41, 13), -- Maquillaje en crema
-("Kryolan", 42, 4), -- Pintura de cuerpo
-("L'Oreal", 43, 6), -- Rímel waterproof
-("Fenty Beauty", 44, 7), -- Gloss labial
-("Benefit", 45, 8), -- Lápiz de cejas
-("MAC", 46, 3), -- Lápiz labial retractable
-("Nars", 47, 9), -- Blush en crema
-("Urban Decay", 48, 10), -- Spray fijador de maquillaje
-("Too Faced", 49, 11), -- Paleta de contorno
-("Real Techniques", 50, 12); -- Brochas de maquillaje
+INSERT INTO maquillajes (marca, medida ,id_producto, id_tipo_maquillaje) VALUES 
+("Maybelline", "gr", 101, 1), -- 1
+("L'Oreal", "ml", 102, 1), -- 2
+("Urban Decay", "kg", 103, 1), -- 3
+("NYX", "gr", 104, 1), -- 4
+("Maybelline", "ml", 105, 2), -- 5
+("L'Oreal", "kg", 106, 2), -- 6
+("MAC", "gr", 107, 3), -- 7
+("Revlon", "ml", 108, 3), -- 8
+("Urban Decay", "kg", 109, 3), -- 9
+("Kryolan", "gr", 110, 4), -- 10
+("Too Faced", "ml", 111, 5), -- 11
+("MAC", "kg", 112, 13), -- 12
+("Kryolan", "gr", 113, 4), -- 13
+("L'Oreal", "ml", 114, 6), -- 14
+("Fenty Beauty", "kg", 115, 7), -- 15
+("Benefit", "gr", 116, 8), -- 16
+("MAC", "ml", 117, 3), -- 17
+("Nars", "kg", 118, 9), -- 18
+("Urban Decay", "gr", 119, 10), -- 19
+("Too Faced", "ml", 120, 11), -- 20
+("Real Techniques", "kg", 121, 12), -- 21
+("Maybelline", "gr", 122, 1), -- 22
+("L'Oreal", "ml", 123, 1), -- 23
+("Urban Decay", "kg", 124, 2), -- 24
+("NYX", "gr", 125, 3), -- 25
+("Maybelline", "ml", 126, 3), -- 26
+("L'Oreal", "kg", 127, 5), -- 27
+("MAC", "gr", 128, 13), -- 28
+("Revlon", "ml", 129, 4), -- 29
+("Urban Decay", "kg", 130, 6), -- 30
+("Kryolan", "gr", 131, 7), -- 31
+("Too Faced", "ml", 132, 8), -- 32
+("MAC", "kg", 133, 9), -- 33
+("Kryolan", "gr", 134, 10), -- 34
+("L'Oreal", "ml", 135, 14), -- 35
+("Fenty Beauty", "kg", 136, 13), -- 36
+("Benefit", "gr", 137, 16), -- 37
+("MAC", "ml", 138, 16), -- 38
+("Nars", "kg", 139, 17), -- 39
+("Urban Decay", "gr", 140, 11), -- 40
+("Too Faced", "ml", 141, 3), -- 41
+("Real Techniques", "kg", 142, 19), -- 42
+("Maybelline", "gr", 143, 19), -- 43
+("L'Oreal", "ml", 144, 20), -- 44
+("Urban Decay", "kg", 145, 21), -- 45
+("NYX", "gr", 146, 15), -- 46
+("Maybelline", "ml", 147, 15), -- 47
+("L'Oreal", "kg", 148, 12), -- 48
+("MAC", "gr", 149, 3), -- 49
+("Revlon", "ml", 150, 13); -- 50
+
+select * from accesorios;
 
 INSERT INTO inventario(stock, id_producto) VALUES
-(15, 1),  -- Disfraz de Batman
-(20, 2),  -- Disfraz de princesa
-(10, 3),  -- Disfraz de Darth Vader
-(8, 4),   -- Disfraz de Frankenstein
-(12, 5),  -- Disfraz de pirata
-(18, 6),  -- Disfraz de superhéroe
-(10, 7),  -- Disfraz de mujer maravilla
-(14, 8),  -- Disfraz de hombre lobo
-(9, 9),   -- Disfraz de robot
-(17, 10), -- Disfraz de diablillo
-(6, 11),  -- Disfraz de gladiador
-(13, 12), -- Disfraz de muñeca
-(16, 13), -- Disfraz de angelito
-(11, 14), -- Disfraz de león
-(9, 15),  -- Disfraz de astronauta
-(7, 16),  -- Disfraz de robot de combate
-(8, 17),  -- Disfraz de sirena
-
-(25, 18), -- Antifaz de carnaval
-(20, 19), -- Sombrero de pirata
-(30, 20), -- Sombrero de vaquero
-(22, 21), -- Capa de vampiro
-(18, 22), -- Capa roja de superhéroe
-(28, 23), -- Diadema de unicornio
-(15, 24), -- Capa de mago
-(26, 25), -- Diadema de flores
-(12, 26), -- Cinturón de guerrero
-(32, 27), -- Sombrero de doctor
-(19, 28), -- Capa de superhéroe
-(35, 29), -- Gorro de elfo
-
-(40, 30), -- Sombra de ojos brillante
-(37, 31), -- Sombra de ojos mate
-(34, 32), -- Sombra de ojos metálica
-(33, 33), -- Sombra de ojos en crema
-(25, 34), -- Delineador líquido
-(22, 35), -- Delineador en gel
-(27, 36), -- Labial mate
-(29, 37), -- Labial brillante
-(24, 38), -- Labial de larga duración
-(31, 39), -- Pintura facial
-(35, 40), -- Glitter facial
-(26, 41), -- Maquillaje en crema
-(18, 42), -- Pintura de cuerpo
-(21, 43), -- Rímel waterproof
-(32, 44), -- Gloss labial
-(28, 45), -- Lápiz de cejas
-(23, 46), -- Lápiz labial retractable
-(30, 47), -- Blush en crema
-(15, 48), -- Spray fijador de maquillaje
-(10, 49), -- Paleta de contorno
-(25, 50); -- Brochas de maquillaje
+(78, 1),
+(65, 2),
+(45, 3),
+(88, 4),
+(32, 5),
+(55, 6),
+(92, 7),
+(71, 8),
+(54, 9),
+(63, 10),
+(49, 11),
+(35, 12),
+(47, 13),
+(39, 14),
+(82, 15),
+(94, 16),
+(30, 17),
+(74, 18),
+(61, 19),
+(80, 20),
+(38, 21),
+(56, 22),
+(68, 23),
+(91, 24),
+(73, 25),
+(87, 26),
+(50, 27),
+(96, 28),
+(67, 29),
+(59, 30),
+(88, 31),
+(49, 32),
+(75, 33),
+(43, 34),
+(62, 35),
+(84, 36),
+(70, 37),
+(30, 38),
+(33, 39),
+(90, 40),
+(66, 41),
+(38, 42),
+(81, 43),
+(92, 44),
+(64, 45),
+(77, 46),
+(39, 47),
+(57, 48),
+(85, 49),
+(46, 50),
+(61, 51),
+(78, 52),
+(83, 53),
+(88, 54),
+(72, 55),
+(95, 56),
+(53, 57),
+(49, 58),
+(80, 59),
+(38, 60),
+(68, 61),
+(74, 62),
+(63, 63),
+(82, 64),
+(36, 65),
+(77, 66),
+(31, 67),
+(90, 68),
+(40, 69),
+(54, 70),
+(80, 71),
+(65, 72),
+(57, 73),
+(73, 74),
+(86, 75),
+(48, 76),
+(92, 77),
+(75, 78),
+(60, 79),
+(33, 80),
+(84, 81),
+(70, 82),
+(78, 83),
+(61, 84),
+(30, 85),
+(64, 86),
+(52, 87),
+(43, 88),
+(79, 89),
+(91, 90),
+(34, 91),
+(67, 92),
+(49, 93),
+(96, 94),
+(72, 95),
+(88, 96),
+(54, 97),
+(66, 98),
+(39, 99),
+(58, 100),
+(76, 101),
+(84, 102),
+(42, 103),
+(30, 104),
+(72, 105),
+(61, 106),
+(66, 107),
+(48, 108),
+(30, 109),
+(90, 110),
+(39, 111),
+(32, 112),
+(81, 113),
+(46, 114),
+(38, 115),
+(50, 116),
+(70, 117),
+(78, 118),
+(54, 119),
+(60, 120),
+(68, 121),
+(45, 122),
+(71, 123),
+(99, 124),
+(37, 125),
+(48, 126),
+(55, 127),
+(62, 128),
+(89, 129),
+(30, 130),
+(91, 131),
+(70, 132),
+(42, 133),
+(67, 134),
+(80, 135),
+(55, 136),
+(72, 137),
+(69, 138),
+(43, 139),
+(59, 140),
+(84, 141),
+(92, 142),
+(36, 143),
+(30, 144),
+(80, 145),
+(69, 146),
+(90, 147),
+(38, 148),
+(76, 149),
+(50, 150),
+(66, 151),
+(35, 152),
+(47, 153),
+(61, 154),
+(79, 155),
+(31, 156),
+(52, 157),
+(88, 158),
+(41, 159),
+(74, 160),
+(48, 161),
+(56, 162),
+(63, 163),
+(70, 164),
+(39, 165),
+(59, 166),
+(37, 167),
+(82, 168),
+(75, 169),
+(40, 170),
+(93, 171),
+(66, 172),
+(81, 173),
+(54, 174),
+(64, 175),
+(38, 176),
+(72, 177),
+(96, 178),
+(53, 179),
+(30, 180),
+(78, 181),
+(67, 182),
+(55, 183),
+(46, 184),
+(87, 185),
+(73, 186),
+(41, 187),
+(39, 188),
+(90, 189),
+(84, 190),
+(92, 191),
+(61, 192),
+(47, 193),
+(37, 194),
+(75, 195),
+(68, 196),
+(58, 197),
+(50, 198),
+(65, 199),
+(32, 200);
 
 INSERT INTO empleados (cedula, nombres, apellidos, fecha_nacimiento, email, telefono, fecha_contratacion, rol, salario) VALUES
 ('1012345678', 'Juan', 'Pérez', '1985-04-12', 'juan.perez@example.com', '3001234567', '2023-01-15', 'vendedor', 1500.00), -- 1 vendedor
@@ -459,66 +748,81 @@ INSERT INTO empleados (cedula, nombres, apellidos, fecha_nacimiento, email, tele
 ('1012345703', 'Nicolas', 'Mendoza', '1989-07-12', 'nicolas.mendoza@example.com', '3007890128', '2023-11-06', 'cajero', 1250.00), -- 26
 ('1012345704', 'Santiago', 'Hernández', '1991-10-18', 'santiago.hernandez@example.com', '3008901239', '2023-11-07', 'bodega', 1400.00), -- 27
 ('1012345705', 'Camilo', 'Vargas', '1988-05-25', 'camilo.vargas@example.com', '3009012350', '2023-11-08', 'oficios varios', 1150.00), -- 28
-('1012345706', 'Angélica', 'García', '1994-12-22', 'angelica.garcia@example.com', '3000123461', '2023-11-09', 'vendedor', 1550.00), -- 29
+('1012345706', 'Angélica', 'García', '1994-12-22', 'angelica.garcia@example.com', '3000123461', '2023-11-09', 'vendedor', 1550.00), -- 29 vendedor
 ('1012345707', 'Ricardo', 'Salinas', '1993-06-30', 'ricardo.salinas@example.com', '3001234562', '2023-11-10', 'cajero', 1200.00), -- 30
 ('1012345708', 'Felipe', 'López', '1986-04-05', 'felipe.lopez@example.com', '3002345674', '2023-11-11', 'bodega', 1350.00), -- 31
 ('1012345709', 'Paola', 'Gómez', '1995-03-14', 'paola.gomez@example.com', '3003456785', '2023-11-12', 'oficios varios', 1150.00), -- 32
-('1012345710', 'Andrés', 'Castillo', '1982-08-24', 'andres.castillo@example.com', '3004567896', '2023-11-13', 'vendedor', 1600.00), -- 33
+('1012345710', 'Andrés', 'Castillo', '1982-08-24', 'andres.castillo@example.com', '3004567896', '2023-11-13', 'vendedor', 1600.00), -- 33 vendedor
 ('1012345711', 'Liliana', 'Cruz', '1990-11-09', 'liliana.cruz@example.com', '3005678907', '2023-11-14', 'cajero', 1250.00), -- 34
 ('1012345712', 'Hernando', 'Rojas', '1989-05-11', 'hernando.rojas@example.com', '3006789018', '2023-11-15', 'bodega', 1300.00), -- 35
 ('1012345713', 'Jessica', 'Córdoba', '1991-02-19', 'jessica.cordoba@example.com', '3007890129', '2023-11-16', 'oficios varios', 1150.00), -- 36
-('1012345714', 'Eduardo', 'Salazar', '1985-07-28', 'eduardo.salazar@example.com', '3008901230', '2023-11-17', 'vendedor', 1500.00), -- 37
+('1012345714', 'Eduardo', 'Salazar', '1985-07-28', 'eduardo.salazar@example.com', '3008901230', '2023-11-17', 'vendedor', 1500.00), -- 37 vendedor
 ('1012345715', 'Natalia', 'Valenzuela', '1996-03-07', 'natalia.valenzuela@example.com', '3009012351', '2023-11-18', 'cajero', 1200.00), -- 38
 ('1012345716', 'Julián', 'Salcedo', '1994-06-21', 'julian.salcedo@example.com', '3000123463', '2023-11-19', 'bodega', 1300.00), -- 39
 ('1012345717', 'Cecilia', 'Quintero', '1990-01-29', 'cecilia.quintero@example.com', '3001234564', '2023-11-20', 'oficios varios', 1150.00), -- 40
-('1012345718', 'Gabriel', 'Agudelo', '1988-09-03', 'gabriel.agudelo@example.com', '3002345675', '2023-11-21', 'vendedor', 1550.00), -- 41
+('1012345718', 'Gabriel', 'Agudelo', '1988-09-03', 'gabriel.agudelo@example.com', '3002345675', '2023-11-21', 'vendedor', 1550.00), -- 41 vendedor
 ('1012345719', 'Lucía', 'Morrison', '1992-02-15', 'lucia.morrison@example.com', '3003456786', '2023-11-22', 'cajero', 1200.00), -- 42
-('1012345720', 'Oscar', 'Téllez', '1986-11-10', 'oscar.tellez@example.com', '3004567897', '2023-11-23', 'bodega', 1350.00); -- 43
+('1012345720', 'Oscar', 'Téllez', '1986-11-10', 'oscar.tellez@example.com', '3004567897', '2023-11-23', 'bodega', 1350.00), -- 43
+('1012345721', 'Santiago', 'López', '1993-04-16', 'santiago.lopez@example.com', '3006789019', '2023-11-24', 'cajero', 1200.00), -- 44
+('1012345722', 'Manuela', 'Ríos', '1995-07-22', 'manuela.rios@example.com', '3007890120', '2023-11-25', 'bodega', 1300.00), -- 45
+('1012345723', 'Diego', 'Pérez', '1987-08-10', 'diego.perez@example.com', '3008901231', '2023-11-26', 'oficios varios', 1150.00), -- 46
+('1012345724', 'Nadia', 'Castañeda', '1994-05-05', 'nadia.castaneda@example.com', '3009012342', '2023-11-27', 'vendedor', 1600.00), -- 47 vendedor
+('1012345725', 'Rafael', 'Salas', '1989-12-19', 'rafael.salas@example.com', '3000123464', '2023-11-28', 'cajero', 1250.00), -- 48
+('1012345726', 'Ariana', 'Serrano', '1991-10-30', 'ariana.serrano@example.com', '3001234565', '2023-11-29', 'bodega', 1300.00), -- 49
+('1012345727', 'Samuel', 'López', '1990-09-13', 'samuel.lopez@example.com', '3002345676', '2023-11-30', 'oficios varios', 1150.00); -- 50
 
 
 INSERT INTO clientes (cedula, nombres, apellidos, email, telefono, fecha_nacimiento) VALUES
-('1023456789', 'Laura', 'Santos', 'laura.santos@example.com', '3111234567', '1995-05-20'),
-('1023456790', 'Jorge', 'Cárdenas', 'jorge.cardenas@example.com', '3112345678', '1992-08-15'),
-('1023456791', 'Camila', 'Naranjo', 'camila.naranjo@example.com', '3113456789', '1994-02-28'),
-('1023456792', 'Sebastián', 'Ocampo', 'sebastian.ocampo@example.com', '3114567890', '1988-07-10'),
-('1023456793', 'Sofía', 'Rodríguez', 'sofia.rodriguez@example.com', '3115678901', '1993-11-05'),
-('1023456794', 'Diana', 'Melo', 'diana.melo@example.com', '3116789012', '1991-01-20'),
-('1023456795', 'Andrés', 'Ceballos', 'andres.ceballos@example.com', '3117890123', '1989-06-30'),
-('1023456796', 'Natalia', 'Paz', 'natalia.paz@example.com', '3118901234', '1996-04-13'),
-('1023456797', 'Diego', 'Hernández', 'diego.hernandez@example.com', '3119012345', '1987-10-18'),
-('1023456798', 'Valentina', 'González', 'valentina.gonzalez@example.com', '3110123456', '1992-09-25'),
-('1023456799', 'Mauricio', 'Velez', 'mauricio.velez@example.com', '3111234560', '1990-12-03'),
-('1023456800', 'Lina', 'Márquez', 'lina.marquez@example.com', '3112345671', '1994-03-14'),
-('1023456801', 'Fernando', 'Castro', 'fernando.castro@example.com', '3113456782', '1985-05-05'),
-('1023456802', 'Melisa', 'Vargas', 'melisa.vargas@example.com', '3114567893', '1988-08-30'),
-('1023456803', 'César', 'Salas', 'cesar.salas@example.com', '3115678904', '1993-07-17'),
-('1023456804', 'Claudia', 'Rivas', 'claudia.rivas@example.com', '3116789015', '1995-06-12'),
-('1023456805', 'Gabriel', 'Alvarez', 'gabriel.alvarez@example.com', '3117890126', '1990-11-04'),
-('1023456806', 'Sara', 'Tobón', 'sara.tobon@example.com', '3118901237', '1991-03-30'),
-('1023456807', 'Esteban', 'Jaramillo', 'esteban.jaramillo@example.com', '3119012348', '1988-09-15'),
-('1023456808', 'Paola', 'Pérez', 'paola.perez@example.com', '3110123459', '1994-01-09'),
-('1023456809', 'Martín', 'Díaz', 'martin.diaz@example.com', '3112345673', '1995-02-15'),
-('1023456810', 'Camilo', 'Torres', 'camilo.torres@example.com', '3113456784', '1987-06-25'),
-('1023456811', 'Angela', 'Mora', 'angela.mora@example.com', '3114567895', '1992-12-05'),
-('1023456812', 'Felipe', 'Gutiérrez', 'felipe.gutierrez@example.com', '3115678906', '1991-03-10'),
-('1023456813', 'Verónica', 'Cruz', 'veronica.cruz@example.com', '3116789017', '1989-07-21'),
-('1023456814', 'Alejandro', 'Rincón', 'alejandro.rincon@example.com', '3117890128', '1994-09-16'),
-('1023456815', 'María', 'Serrano', 'maria.serrano@example.com', '3118901239', '1988-04-30'),
-('1023456816', 'Juliana', 'Paniagua', 'juliana.paniagua@example.com', '3119012340', '1993-05-15'),
-('1023456817', 'Diego', 'Cardona', 'diego.cardona@example.com', '3110123451', '1990-08-24'),
-('1023456818', 'Luisa', 'Montoya', 'luisa.montoya@example.com', '3111234598', '1985-01-05'),
-('1023456819', 'Fernando', 'Salazar', 'fernando.salazar@example.com', '3112345687', '1992-10-10'),
-('1023456820', 'Estefanía', 'Gómez', 'estefania.gomez@example.com', '3113456786', '1996-02-20'),
-('1023456821', 'Cristian', 'Vasquez', 'cristian.vasquez@example.com', '3114567894', '1989-11-11'),
-('1023456822', 'Tatiana', 'Palacios', 'tatiana.palacios@example.com', '3115678908', '1994-12-12'),
-('1023456823', 'Andrés', 'García', 'andres.garcia@example.com', '3116789019', '1995-03-18'),
-('1023456824', 'Martha', 'Ceballos', 'martha.ceballos@example.com', '3117890120', '1990-08-21'),
-('1023456825', 'Julio', 'Castro', 'julio.castro@example.com', '3118901231', '1991-05-30'),
-('1023456826', 'Luz', 'Vélez', 'luz.velez@example.com', '3119012342', '1986-06-15'),
-('1023456827', 'Berta', 'Ríos', 'berta.rios@example.com', '3110123453', '1988-10-05'),
-('1023456828', 'Carlos', 'Mendoza', 'carlos.mendoza@example.com', '3111234562', '1992-09-19'),
-('1023456829', 'Santiago', 'Marín', 'santiago.marin@example.com', '3112345675', '1987-01-11'),
-('1023456830', 'Claudia', 'Figueroa', 'claudia.figueroa@example.com', '3113456783', '1993-04-25');
+('1023456789', 'Laura', 'Santos', 'laura.santos@example.com', '3111234567', '1995-05-20'), -- 1
+('1023456790', 'Jorge', 'Cárdenas', 'jorge.cardenas@example.com', '3112345678', '1992-08-15'), -- 2
+('1023456791', 'Camila', 'Naranjo', 'camila.naranjo@example.com', '3113456789', '1994-02-28'), -- 3
+('1023456792', 'Sebastián', 'Ocampo', 'sebastian.ocampo@example.com', '3114567890', '1988-07-10'), -- 4
+('1023456793', 'Sofía', 'Rodríguez', 'sofia.rodriguez@example.com', '3115678901', '1993-11-05'), -- 5
+('1023456794', 'Diana', 'Melo', 'diana.melo@example.com', '3116789012', '1991-01-20'), -- 6
+('1023456795', 'Andrés', 'Ceballos', 'andres.ceballos@example.com', '3117890123', '1989-06-30'), -- 7
+('1023456796', 'Natalia', 'Paz', 'natalia.paz@example.com', '3118901234', '1996-04-13'), -- 8
+('1023456797', 'Diego', 'Hernández', 'diego.hernandez@example.com', '3119012345', '1987-10-18'), -- 9
+('1023456798', 'Valentina', 'González', 'valentina.gonzalez@example.com', '3110123456', '1992-09-25'), -- 10
+('1023456799', 'Mauricio', 'Velez', 'mauricio.velez@example.com', '3111234560', '1990-12-03'), -- 11
+('1023456800', 'Lina', 'Márquez', 'lina.marquez@example.com', '3112345671', '1994-03-14'), -- 12
+('1023456801', 'Fernando', 'Castro', 'fernando.castro@example.com', '3113456782', '1985-05-05'), -- 13
+('1023456802', 'Melisa', 'Vargas', 'melisa.vargas@example.com', '3114567893', '1988-08-30'), -- 14
+('1023456803', 'César', 'Salas', 'cesar.salas@example.com', '3115678904', '1993-07-17'), -- 15
+('1023456804', 'Claudia', 'Rivas', 'claudia.rivas@example.com', '3116789015', '1995-06-12'), -- 16
+('1023456805', 'Gabriel', 'Alvarez', 'gabriel.alvarez@example.com', '3117890126', '1990-11-04'), -- 17
+('1023456806', 'Sara', 'Tobón', 'sara.tobon@example.com', '3118901237', '1991-03-30'), -- 18
+('1023456807', 'Esteban', 'Jaramillo', 'esteban.jaramillo@example.com', '3119012348', '1988-09-15'), -- 19
+('1023456808', 'Paola', 'Pérez', 'paola.perez@example.com', '3110123459', '1994-01-09'), -- 20
+('1023456809', 'Martín', 'Díaz', 'martin.diaz@example.com', '3112345673', '1995-02-15'), -- 21
+('1023456810', 'Camilo', 'Torres', 'camilo.torres@example.com', '3113456784', '1987-06-25'), -- 22
+('1023456811', 'Angela', 'Mora', 'angela.mora@example.com', '3114567895', '1992-12-05'), -- 23
+('1023456812', 'Felipe', 'Gutiérrez', 'felipe.gutierrez@example.com', '3115678906', '1991-03-10'), -- 24
+('1023456813', 'Verónica', 'Cruz', 'veronica.cruz@example.com', '3116789017', '1989-07-21'), -- 25
+('1023456814', 'Alejandro', 'Rincón', 'alejandro.rincon@example.com', '3117890128', '1994-09-16'), -- 26
+('1023456815', 'María', 'Serrano', 'maria.serrano@example.com', '3118901239', '1988-04-30'), -- 27
+('1023456816', 'Juliana', 'Paniagua', 'juliana.paniagua@example.com', '3119012340', '1993-05-15'), -- 28
+('1023456817', 'Diego', 'Cardona', 'diego.cardona@example.com', '3110123451', '1990-08-24'), -- 29
+('1023456818', 'Luisa', 'Montoya', 'luisa.montoya@example.com', '3111234598', '1985-01-05'), -- 30
+('1023456819', 'Fernando', 'Salazar', 'fernando.salazar@example.com', '3112345687', '1992-10-10'), -- 31
+('1023456820', 'Estefanía', 'Gómez', 'estefania.gomez@example.com', '3113456786', '1996-02-20'), -- 32
+('1023456821', 'Cristian', 'Vasquez', 'cristian.vasquez@example.com', '3114567894', '1989-11-11'), -- 33
+('1023456822', 'Tatiana', 'Palacios', 'tatiana.palacios@example.com', '3115678908', '1994-12-12'), -- 34
+('1023456823', 'Andrés', 'García', 'andres.garcia@example.com', '3116789019', '1995-03-18'), -- 35
+('1023456824', 'Martha', 'Ceballos', 'martha.ceballos@example.com', '3117890120', '1990-08-21'), -- 36
+('1023456825', 'Julio', 'Castro', 'julio.castro@example.com', '3118901231', '1991-05-30'), -- 37
+('1023456826', 'Luz', 'Vélez', 'luz.velez@example.com', '3119012342', '1986-06-15'), -- 38
+('1023456827', 'Berta', 'Ríos', 'berta.rios@example.com', '3110123453', '1988-10-05'), -- 39
+('1023456828', 'Carlos', 'Mendoza', 'carlos.mendoza@example.com', '3111234562', '1992-09-19'), -- 40
+('1023456829', 'Santiago', 'Marín', 'santiago.marin@example.com', '3112345675', '1987-01-11'), -- 41
+('1023456830', 'Claudia', 'Figueroa', 'claudia.figueroa@example.com', '3113456783', '1993-04-25'), -- 42
+('1005327319', 'Adrian', "Ustariz", 'dxniel7328@gmail.com', '3173109599', '2002-03-18'), -- 43
+('1005327320', 'Sofia', 'Torres', 'sofia.torres@example.com', '3173109600', '1994-05-22'),
+('1005327321', 'Felipe', 'Ramirez', 'felipe.ramirez@example.com', '3173109601', '1990-07-15'),
+('1005327322', 'Camila', 'López', 'camila.lopez@example.com', '3173109602', '1995-09-08'),
+('1005327323', 'Luis', 'Hernandez', 'luis.hernandez@example.com', '3173109603', '1988-12-12'),
+('1005327324', 'Valentina', 'Pérez', 'valentina.perez@example.com', '3173109604', '1992-02-20'),
+('1005327325', 'Diego', 'Mendoza', 'diego.mendoza@example.com', '3173109605', '1985-11-30'),
+('1005327326', 'Natalia', 'Cordero', 'natalia.cordero@example.com', '3173109606', '1993-04-25');
 
 INSERT INTO usuarios(correo, contraseña) VALUES
 ('juanito12@gmail.com', 'cucarachasunidas'), -- 1
@@ -571,7 +875,7 @@ INSERT INTO usuarios(correo, contraseña) VALUES
 ('martinrojas@gmail.com', 'luzdetranquilidad'), -- 48
 ('adriana_morales@gmail.com', 'unavidaentera'), -- 49
 ('luisarmando@gmail.com', 'elcaminodelrey'); -- 50
-;
+
 
 INSERT INTO ciudades(nombre) VALUES
 ('Bogotá'),
@@ -586,7 +890,6 @@ INSERT INTO ciudades(nombre) VALUES
 ('Ibagué'),
 ('Manizales'),
 ('Neiva'),
-('Cali'),
 ('Valledupar'),
 ('Popayán'),
 ('Sincelejo'),
@@ -601,7 +904,6 @@ INSERT INTO ciudades(nombre) VALUES
 ('Quibdó'),
 ('San Andrés'),
 ('Leticia'),
-('Cúcuta'),
 ('Villavicencio'),
 ('Pasto'),
 ('Tuluá'),
@@ -621,7 +923,14 @@ INSERT INTO ciudades(nombre) VALUES
 ('Caldas'),
 ('Guatapé'),
 ('Zipaquirá'),
-('Santiago de Cali');
+('Santiago de Cali'),
+('La Dorada'),
+('San Juan de Pasto'),
+('Tunja'),
+('Magangué'),
+('Palmira'),
+('Ciénaga de Oro');
+
 
 INSERT INTO barrios(nombre, id_ciudad) VALUES
 ('La Candelaria', 1), -- 1
