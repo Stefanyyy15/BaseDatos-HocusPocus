@@ -878,108 +878,105 @@ INSERT INTO usuarios(correo, contraseña) VALUES
 
 
 INSERT INTO ciudades(nombre) VALUES
-('Bogotá'),
-('Medellín'),
-('Cali'),
-('Barranquilla'),
-('Cartagena'),
-('Cúcuta'),
-('Bucaramanga'),
-('Pereira'),
-('Santa Marta'),
-('Ibagué'),
-('Manizales'),
-('Neiva'),
-('Valledupar'),
-('Popayán'),
-('Sincelejo'),
-('Montería'),
-('Armenia'),
-('Cartago'),
-('Tunja'),
-('Bello'),
-('Soledad'),
-('Riohacha'),
-('Yopal'),
-('Quibdó'),
-('San Andrés'),
-('Leticia'),
-('Villavicencio'),
-('Pasto'),
-('Tuluá'),
-('Buga'),
-('Chiquinquirá'),
-('Sogamoso'),
-('Rionegro'),
-('Barrancabermeja'),
-('Aguachica'),
-('Ciénaga'),
-('El Banco'),
-('Mocoa'),
-('San Gil'),
-('Sampués'),
-('Tame'),
-('Tibú'),
-('Caldas'),
-('Guatapé'),
-('Zipaquirá'),
-('Santiago de Cali'),
-('La Dorada'),
-('San Juan de Pasto'),
-('Tunja'),
-('Magangué'),
-('Palmira'),
-('Ciénaga de Oro');
-
+('Bogotá'), -- 1
+('Medellín'), -- 2
+('Cali'), -- 3
+('Barranquilla'), -- 4
+('Cartagena'), -- 5
+('Cúcuta'), -- 6
+('Bucaramanga'), -- 7
+('Pereira'), -- 8
+('Santa Marta'), -- 9
+('Ibagué'), -- 10
+('Manizales'), -- 11
+('Neiva'), -- 12
+('Valledupar'), -- 13
+('Popayán'), -- 14
+('Sincelejo'), -- 15
+('Montería'), -- 16
+('Armenia'), -- 17
+('Cartago'), -- 18
+('Tunja'), -- 19
+('Bello'), -- 20
+('Soledad'), -- 21
+('Riohacha'), -- 22
+('Yopal'), -- 23
+('Quibdó'), -- 24
+('San Andrés'), -- 25
+('Leticia'), -- 26
+('Villavicencio'), -- 27
+('Pasto'), -- 28
+('Tuluá'), -- 29
+('Buga'), -- 30
+('Chiquinquirá'), -- 31
+('Sogamoso'), -- 32
+('Rionegro'), -- 33
+('Barrancabermeja'), -- 34
+('Aguachica'), -- 35
+('Ciénaga'), -- 36
+('El Banco'), -- 37
+('Mocoa'), -- 38
+('San Gil'), -- 39
+('Sampués'), -- 40
+('Tame'), -- 41
+('Tibú'), -- 42
+('Caldas'), -- 43
+('Guatapé'), -- 44
+('Zipaquirá'), -- 45
+('Santiago de Cali'), -- 46
+('La Dorada'), -- 47
+('San Juan de Pasto'), -- 48
+('Palmira'), -- 49
+('Ciénaga de Oro'); -- 50
 
 INSERT INTO barrios(nombre, id_ciudad) VALUES
-('La Candelaria', 1), -- 1
-('El Poblado', 2), -- 2
-('San Fernando', 3), -- 3
-('El Prado', 4), -- 4
-('Getsemaní', 5), -- 5
-('La Playa', 6), -- 6
-('Morrorico', 7), -- 7
-('Pinares', 8), -- 8
-('Rodadero', 9), -- 9
-('La Pola', 10), -- 10
-('Cable', 11), -- 11
-('Las Vegas', 12), -- 12
-('Gaira', 13), -- 13
-('Centro Histórico', 14), -- 14
-('El Morro', 15), -- 15
-('Alameda', 16), -- 16
-('La Tebaida', 17), -- 17
-('El Centro', 18), -- 18
-('San Mateo', 19), -- 19
-('Tunja Vieja', 20), -- 20
-('Niquía', 21), -- 21
-('La Ceja', 22), -- 22
-('El Malecón', 23), -- 23
-('El Bosque', 24), -- 24
-('El Jardín', 25), -- 25
-('San Andrés', 26), -- 26
-('Centro', 27), -- 27
-('Los Patios', 28), -- 28
-('Hato Grande', 29), -- 29
-('La Rosa', 30), -- 30
-('El Trapiche', 31), -- 31
-('Buga Centro', 32), -- 32
-('Santa Teresa', 33), -- 33
-('El Libertador', 34), -- 34
-('La Esperanza', 35), -- 35
-('Centro', 36), -- 36
-('San Vicente', 37), -- 37
-('Cienaga Centro', 38), -- 38
-('El Placer', 39), -- 39
-('Centro', 40), -- 40
-('Los Alpes', 41), -- 41
-('La Pampa', 42), -- 42
-('Centro', 43), -- 43
-('El Chocó', 44), -- 44
-('Sierra Nevada', 45), -- 45
-('Los Rosales', 46), -- 46
-('Las Brisas', 47), -- 47
-('Puente Aranda', 48), -- 48
-('El Oasis', 49), -- 49
-('La Paz', 50); -- 50
+('La Candelaria', 1), -- 1 (Bogotá)
+('El Poblado', 2), -- 2 (Medellín)
+('San Fernando', 3), -- 3 (Cali)
+('El Prado', 4), -- 4 (Barranquilla)
+('Getsemaní', 5), -- 5 (Cartagena)
+('La Playa', 6), -- 6 (Cúcuta)
+('Morrorico', 7), -- 7 (Bucaramanga)
+('Pinares', 8), -- 8 (Pereira)
+('Rodadero', 9), -- 9 (Santa Marta)
+('La Pola', 10), -- 10 (Ibagué)
+('Cable', 11), -- 11 (Manizales)
+('Las Vegas', 12), -- 12 (Medellín)
+('Gaira', 13), -- 13 (Santa Marta)
+('Centro Histórico', 14), -- 14 (Cartagena)
+('El Morro', 15), -- 15 (Cartagena)
+('Alameda', 16), -- 16 (Bucaramanga)
+('La Tebaida', 17), -- 17 (Armenia)
+('El Centro', 1), -- 18 (Bogotá)
+('San Mateo', 2), -- 19 (Medellín)
+('Tunja Vieja', 3), -- 20 (Tunja)
+('Niquía', 2), -- 21 (Medellín)
+('La Ceja', 20), -- 22 (Bello)
+('El Malecón', 6), -- 23 (Cúcuta)
+('El Bosque', 12), -- 24 (Cali)
+('El Jardín', 10), -- 25 (Ibagué)
+('San Andrés', 25), -- 26 (San Andrés)
+('Centro', 1), -- 27 (Bogotá)
+('Los Patios', 6), -- 28 (Cúcuta)
+('Hato Grande', 7), -- 29 (Bucaramanga)
+('La Rosa', 9), -- 30 (Santa Marta)
+('El Trapiche', 4), -- 31 (Barranquilla)
+('Buga Centro', 30), -- 32 (Buga)
+('Santa Teresa', 3), -- 33 (Cali)
+('El Libertador', 7), -- 34 (Bucaramanga)
+('La Esperanza', 9), -- 35 (Santa Marta)
+('Centro', 10), -- 36 (Ibagué)
+('San Vicente', 19), -- 37 (Tunja)
+('Cienaga Centro', 4), -- 38 (Barranquilla)
+('El Placer', 9), -- 39 (Santa Marta)
+('Los Alpes', 6), -- 40 (Cúcuta)
+('La Pampa', 7), -- 41 (Bucaramanga)
+('Centro', 1), -- 42 (Bogotá)
+('El Chocó', 24), -- 43 (Quibdó)
+('Sierra Nevada', 9), -- 44 (Santa Marta)
+('Los Rosales', 2), -- 45 (Medellín)
+('Las Brisas', 33), -- 46 (Barrancabermeja)
+('Puente Aranda', 1), -- 47 (Bogotá)
+('El Oasis', 7), -- 48 (Bucaramanga)
+('La Paz', 1), -- 49 (Bogotá)
+('Cabecera', 7); -- 50
