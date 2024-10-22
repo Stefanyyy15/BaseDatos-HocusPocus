@@ -69,7 +69,6 @@ create table if not exists tipos_maquillaje(
 
 create table if not exists maquillajes(
 	id_maquillaje int primary key auto_increment,
-	color varchar(100),
     marca varchar(100) not null,
     medida enum("ml", "l", "gr", "kg"),
     id_producto int,
@@ -170,7 +169,7 @@ create table if not exists detalles_ventas( -- d
     foreign key (id_producto) references productos (id_producto)
 );
 
-create table if not exists detalles_ventas_online( --s
+create table if not exists detalles_ventas_online( -- s
 	id_detalle_venta_online int primary key auto_increment,
     id_venta_online int,
     id_direccion int,
@@ -312,4 +311,3 @@ create table if not exists detalles_devoluciones( -- s
     foreign key (id_devolucion) references devoluciones (id_devolucion),
     foreign key (id_producto) references productos (id_producto)
 );
-
