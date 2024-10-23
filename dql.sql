@@ -615,3 +615,162 @@ JOIN
     detalles_ventas ON ventas.id_venta = detalles_ventas.id_venta
 WHERE
     empleados.id_empleado = 5;
+
+
+use hocus_pocus;
+
+-- 81. Listar los empleados con el menor rendimiento en ventas.
+
+select 
+	empleados.nombres,
+    count(ventas.id_venta) as ventas
+from
+	empleados
+join
+	ventas on ventas.id_empleado = empleados.id_empleado
+group by
+	empleados.nombres
+order by 
+    ventas asc
+limit 5;
+
+-- 83.  Obtener un análisis de las decoraciones más populares según la cantidad vendida, junto con su tipo y el total de ingresos generados.
+
+select
+	productos.nombre,
+    tipos_decoracion.nombre,
+    detalles_ventas.cantidad
+from
+	productos
+join
+	categorias_productos on categorias_productos.id_categoria = productos.id_categoria
+join
+	decoraciones on decoraciones.id_producto = productos.id_producto
+join
+	tipos_decoracion on tipos_decoracion.id_tipos_decoracion = decoraciones.id_tipos_decoracion
+join
+	detalles_ventas on detalles_ventas.id_producto = productos.id_producto
+order by detalles_ventas.cantidad desc;
+
+-- 85. listar ciudades donde se encuentran los clientes y el numero de ellos
+
+select
+	ciudades.nombre,
+    count(clientes.id_cliente) as numero_clientes
+from
+	clientes
+join
+	direcciones on direcciones.id_cliente = clientes.id_cliente
+join
+	barrios on barrios.id_barrio = direcciones.id_barrio
+join
+	ciudades on ciudades.id_ciudad = barrios.id_ciudad
+group by 
+	ciudades.nombre
+order by
+	numero_clientes;
+
+-- 87. Obtener la suma de todas las devoluciones y su efecto en las ganancias.
+
+select 
+    sum(detalles_devoluciones.cantidad) as total_devoluciones,
+    sum(detalles_devoluciones.cantidad * detalles_ventas.precio_unitario) as efecto_en_ganancias
+from 
+    devoluciones
+join 
+    detalles_devoluciones on devoluciones.id_devolucion = detalles_devoluciones.id_devolucion
+join 
+    detalles_ventas on detalles_devoluciones.id_producto = detalles_ventas.id_producto
+join 
+    ventas on devoluciones.id_venta = ventas.id_venta
+where 
+    detalles_ventas.id_venta = ventas.id_venta;
+    
+-- 89. Consultar los detalles de las ventas realizadas en un evento especial.
+
+select 
+    productos.nombre as nombre_producto,
+    detalles_ventas.cantidad as cantidad_vendida,
+    detalles_ventas.precio_unitario as precio_unitario,
+    ventas.total as total_venta,
+    promociones.nombre as nombre_promocion,
+    promociones.fecha_inicio as fecha_inicio_promocion,
+    promociones.fecha_fin as fecha_fin_promocion
+from 
+    detalles_ventas
+join 
+    productos on productos.id_producto = detalles_ventas.id_producto
+join 
+    ventas on ventas.id_venta = detalles_ventas.id_venta
+join 
+    detalles_ventas_online on detalles_ventas_online.id_producto = productos.id_producto
+join 
+    productos_promocion on productos_promocion.id_producto = productos.id_producto
+join 
+    promociones on promociones.id_promocion = productos_promocion.id_promocion
+where 
+    year(ventas.fecha_venta) = year(promociones.fecha_inicio);
+    
+-- 91. Consultar los ingresos generados por los alquileres de disfraces por mes.
+
+select 
+    month(alquileres.fecha_inicio) as mes,
+    sum(alquileres.total) as ingresos_totales
+from 
+    alquileres
+group by 
+    month(alquileres.fecha_inicio)
+order by 
+    mes;
+
+-- 93. Listar los métodos de pago más comunes y su impacto en las ventas.
+
+select 
+    metodos_pago.nombre as metodo_pago,
+    count(transacciones.id_venta) as total_transacciones,
+    sum(transacciones.monto) as total_ingresos
+from 
+    metodos_pago
+join 
+    transacciones on metodos_pago.id_metodo_pago = transacciones.id_metodo_pago
+group by 
+    metodos_pago.nombre
+order by 
+    total_transacciones desc;
+    
+-- 95. Obtener el promedio de precio de los disfraces por género.
+
+select
+	avg(productos.precio) as promedio_precios,
+    disfraces.genero
+from
+	disfraces
+join
+	productos on productos.id_producto = disfraces.id_producto
+group by disfraces.genero;
+
+-- 97. Consultar la cantidad de disfraces disponibles por talla y género.
+
+select
+	productos.nombre,
+    disfraces.talla,
+    disfraces.genero,
+    sum(inventario.stock) as total_stock
+from 
+    disfraces
+join 
+    productos on productos.id_producto = disfraces.id_producto
+join 
+    inventario on inventario.id_producto = productos.id_producto
+group by 
+    disfraces.talla, disfraces.genero, productos.nombre;
+    
+-- 99. Listar las órdenes de compra por estado y su proveedor correspondiente.
+
+select
+	proveedores.nombre_empresa,
+    ordenes_compra.estado
+from
+	ordenes_compra
+join
+	proveedores on proveedores.id_proveedor = ordenes_compra.id_proveedor;
