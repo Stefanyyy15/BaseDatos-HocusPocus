@@ -1,4 +1,3 @@
-
 # Hocus Pocus Tienda
 
 Esta es una base de datos diseñada de manera eficiente y optimizada para la gestión de la tienda de disfraces Hocus Pocus. Su estructura incluye relaciones bien definidas entre tablas y operaciones de inserción cuidadas, lo que garantiza un funcionamiento fluido y preciso en todas las transacciones. Además, cuenta con consultas optimizadas para facilitar la búsqueda y procesos, junto con funciones específicas que mejoran la eficiencia en la gestión de datos.
@@ -167,6 +166,126 @@ Las devoluciones están relacionadas con las ventas y productos a través de cla
 Los alquileres se vinculan a los clientes y disfraces.
 Las tarjetas de los clientes se gestionan a través de cliente_tarjeta.
 
+## Ejemplos de Consultas SQL
+
+A continuación se presentan algunos ejemplos de consultas SQL que se pueden ejecutar en la base de datos, junto con una breve explicación de la información que generan.
+
+### 1. Total de Ventas por Empleado
+Calcula el total de ventas realizadas por cada empleado y las ordena de mayor a menor.
+
+```sql
+SELECT em.nombres,
+       COUNT(v.id_venta) AS TotalVentas
+FROM ventas v
+JOIN empleados em ON em.id_empleado = v.id_empleado
+GROUP BY em.nombres
+ORDER BY TotalVentas DESC;
+```
+
+### 2. Total de Ventas y Descuentos Aplicados por Empleado
+Obtiene el total de ventas y descuentos aplicados por cada empleado en un año específico.
+
+```sql
+SELECT e.nombres AS Empleado,
+       COUNT(v.id_venta) AS TotalVentas,
+       SUM(v.descuento) AS TotalDescuentos
+FROM empleados e
+JOIN ventas v ON v.id_empleado = e.id_empleado
+WHERE YEAR(v.fecha_venta) = 2023
+GROUP BY e.nombres
+ORDER BY COUNT(v.id_venta) ASC;
+```
+
+### 3.  Promociones Activas y Productos Asociados
+Lista las promociones activas y los productos asociados a cada una.
+
+```sql
+SELECT p.nombre AS PromoNombre,
+       p.fecha_fin,
+       productos.nombre AS Producto
+FROM promociones p
+JOIN productos_promocion pp ON p.id_promocion = pp.id_promocion
+JOIN productos ON productos.id_producto = pp.id_producto
+WHERE p.fecha_fin >= CURDATE();
+```
+
+## Procedimientos Almacenados
+
+Los procedimientos almacenados son bloques de código SQL que realizan operaciones específicas en la base de datos. A continuación, se presentan algunos ejemplos:
+
+### 1. Insertar un nuevo producto en la tabla productos
+```sql
+CREATE PROCEDURE InsertarProducto(IN nombre VARCHAR(255), IN precio DECIMAL(10, 2), IN categoria_id INT)
+BEGIN
+    INSERT INTO productos (nombre, precio, categoria_id) VALUES (nombre, precio, categoria_id);
+END;
+```
+### 2.  Actualizar el stock de un producto en la tabla inventario
+```sql
+CREATE PROCEDURE ActualizarStock(IN producto_id INT, IN cantidad INT)
+BEGIN
+    UPDATE inventario SET stock = stock + cantidad WHERE producto_id = producto_id;
+END;
+```
+## Funciones
+
+Las funciones permiten realizar cálculos y devolver valores específicos. A continuación se presentan algunos ejemplos:
+
+### 1. Calcular el total de ingresos por alquiler de disfraces en un período específico
+```sql
+CREATE FUNCTION TotalIngresosAlquiler(IN inicio DATE, IN fin DATE) RETURNS DECIMAL(10, 2)
+BEGIN
+    DECLARE total DECIMAL(10, 2);
+    SELECT SUM(precio) INTO total FROM alquileres WHERE fecha >= inicio AND fecha <= fin;
+    RETURN total;
+END;
+```
+### 2. Calcular la rentabilidad de un producto específico
+```sql
+CREATE FUNCTION RentabilidadProducto(IN producto_id INT) RETURNS DECIMAL(10, 2)
+BEGIN
+    DECLARE costo DECIMAL(10, 2);
+    DECLARE venta DECIMAL(10, 2);
+    SELECT SUM(costo) INTO costo FROM detalles_ordenes_compra WHERE producto_id = producto_id;
+    SELECT SUM(precio) INTO venta FROM detalles_ventas WHERE producto_id = producto_id;
+    RETURN venta - costo;
+END;
+```
+## Triggers
+
+Los triggers son acciones automáticas que se ejecutan en respuesta a eventos específicos en la base de datos. A continuación se presentan algunos ejemplos:
+
+### 1. Actualizar stock al agregar un producto nuevo
+```sql
+CREATE TRIGGER AfterInsertProducto
+AFTER INSERT ON productos
+FOR EACH ROW
+BEGIN
+    INSERT INTO inventario (producto_id, stock) VALUES (NEW.id, 0);
+END;
+```
+### 2. Mantener el stock al realizar una venta
+```sql
+CREATE TRIGGER AfterInsertVenta
+AFTER INSERT ON detalles_ventas
+FOR EACH ROW
+BEGIN
+    UPDATE inventario SET stock = stock - NEW.cantidad WHERE producto_id = NEW.producto_id;
+END;
+```
+## Eventos
+
+Los eventos son tareas programadas que se ejecutan automáticamente en intervalos regulares. A continuación se presentan algunos ejemplos:
+
+### 1.  Verificar y actualizar el estado de las promociones que han vencido
+```sql
+CREATE EVENT VerificarPromocionesVencidas
+ON SCHEDULE EVERY 1 DAY
+DO
+BEGIN
+    UPDATE promociones SET estado = 'finalizada' WHERE fecha_fin < NOW();
+END;
+```
 ## Roles de Usuario y Permisos: 
 
 ### 1. Administrador
@@ -236,6 +355,7 @@ GRANT SELECT, UPDATE ON hocus_pocus.inventario TO 'encargado_almacen'@'localhost
 FLUSH PRIVILEGES;
 FLUSH PRIVILEGES;
 ```
+
 
 ## Contribuciones
 
