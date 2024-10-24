@@ -194,3 +194,191 @@ begin
 end //
 
 DELIMITER ;
+
+-- Verificar y actualizar el estado de las promociones que han vencido según fecha_fin (tabla promociones).
+
+DELIMITER //
+
+CREATE EVENT ActualizarPromocionesVencidas
+ON SCHEDULE EVERY 1 DAY 
+DO
+BEGIN
+    UPDATE promociones
+    SET nombre = 'vencida'
+    WHERE fecha_fin < CURDATE() AND nombre != 'vencida';
+END //
+
+DELIMITER ;
+
+SELECT * FROM promociones;
+
+-- Calcular el stock restante después de cada venta (tabla inventario).
+
+DELIMITER //
+
+CREATE EVENT ActualizarStockVentas
+ON SCHEDULE EVERY 1 DAY
+DO
+BEGIN
+    UPDATE inventario i
+    JOIN (
+        SELECT id_producto, SUM(cantidad) AS total_vendido
+        FROM detalles_ventas
+        WHERE fecha_venta >= CURDATE() - INTERVAL 1 DAY
+        GROUP BY id_producto
+    ) AS ventas ON i.id_producto = ventas.id_producto
+    SET i.stock = i.stock - ventas.total_vendido
+    WHERE i.stock >= ventas.total_vendido;
+END //
+
+DELIMITER ;
+
+--  Actualizar el stock de disfraces en inventario cuando se venzan los alquileres
+
+DELIMITER //
+
+CREATE EVENT ActualizarAlquileresVencidos
+ON SCHEDULE EVERY 1 MONTH
+DO
+BEGIN
+    UPDATE inventario
+    SET stock = stock + (
+        SELECT COUNT(*)
+        FROM detalles_alquileres da
+        WHERE da.id_alquiler IN (
+            SELECT a.id_alquiler
+            FROM alquileres a
+            WHERE a.fecha_fin < CURDATE()
+        ) AND da.id_disfraz = inventario.id_producto
+    )
+    WHERE id_producto IN (
+        SELECT da.id_disfraz
+        FROM detalles_alquileres da
+        WHERE da.id_alquiler IN (
+            SELECT a.id_alquiler
+            FROM alquileres a
+            WHERE a.fecha_fin < CURDATE()
+        )
+    );
+END //
+
+DELIMITER ;
+
+-- Actualizar los precios de alquiler de disfraces en temporada alta (tabla disfraces).
+
+DELIMITER //
+
+CREATE EVENT ActualizarPreciosTemporadaAlta
+ON SCHEDULE EVERY 1 MONTH
+DO
+BEGIN
+    UPDATE disfraces
+    SET precio_alquiler = precio_alquiler * 0.20
+    WHERE id_disfraz IN (
+        SELECT id_disfraz
+        FROM disfraces
+        WHERE '2024-09-20' <= CURDATE()
+        AND '2024-10-31' >= CURDATE()
+    );
+END //
+
+DELIMITER ;
+
+-- Verificar stock menor a 10 unidades (tabla inventario).
+
+DELIMITER //
+
+CREATE EVENT IF NOT EXISTS verificar_stock_bajo
+ON SCHEDULE EVERY 1 DAY
+DO
+BEGIN
+    DECLARE Mensaje VARCHAR(255);
+    IF EXISTS (SELECT * FROM inventario WHERE stock < 10) THEN
+        SET Mensaje = 'Alerta: Hay productos con stock menor a 10 unidades.';
+        SELECT Mensaje AS 'Mensaje de Alerta';
+    END IF;
+END //
+
+DELIMITER ;
+
+DELIMITER //
+
+CREATE EVENT IF NOT EXISTS verificar_stock_bajo
+ON SCHEDULE EVERY 1 MONTH
+DO
+BEGIN
+    DECLARE Mensaje VARCHAR(255);
+    IF EXISTS (SELECT * FROM inventario WHERE stock < 10) THEN
+        SET Mensaje = 'Alerta: Hay productos con stock menor a 10 unidades.';
+        SELECT Mensaje AS 'Mensaje de Alerta';
+    END IF;
+END //
+
+DELIMITER ;
+
+-- Actualizar el estado de los envíos a "en tránsito" un día después de fecha_envio (tabla envios).
+
+DELIMITER //
+
+CREATE EVENT IF NOT EXISTS actualizar_estado_envios
+ON SCHEDULE EVERY 1 DAY
+DO
+BEGIN
+    UPDATE envios
+    SET estado_envio = 'en tránsito'
+    WHERE estado_envio = 'pendiente'
+      AND DATE(fecha_envio) = DATE_SUB(CURDATE(), INTERVAL 1 DAY);
+END //
+
+DELIMITER ;
+
+-- Actualizar el total de detalles_ventas_online (tabla detalles_ventas_online).
+
+DELIMITER //
+
+CREATE EVENT IF NOT EXISTS actualizar_total_detalles_ventas_online
+ON SCHEDULE EVERY 1 Month
+DO
+BEGIN
+    UPDATE detalles_ventas_online d
+    JOIN productos p ON d.id_producto = p.id_producto
+    SET d.total = d.cantidad * p.precio;
+END //
+
+DELIMITER ;
+
+-- Actualizar estado de ordenes de compra diaria a completado despues de una semana despues de la fecha orden (tabla ordenes_compra).
+
+DELIMITER //
+
+CREATE EVENT IF NOT EXISTS actualizar_estado_ordenes_compra
+ON SCHEDULE EVERY 1 DAY
+DO
+BEGIN
+    UPDATE ordenes_compra
+    SET estado = 'completado'
+    WHERE estado = 'entregado'  
+      AND DATE(fecha_orden) = DATE_SUB(CURDATE(), INTERVAL 1 WEEK);
+END //
+
+DELIMITER ;
+
+-- Calcular el monto total de transacciones diarias por método de pago (tabla transacciones).
+
+DELIMITER //
+
+CREATE EVENT IF NOT EXISTS calcular_montos_diarios_transacciones
+ON SCHEDULE EVERY 1 DAY
+DO
+BEGIN
+    DELETE FROM resumen_transacciones_diarias WHERE fecha = CURDATE() - INTERVAL 1 DAY;
+    INSERT INTO resumen_transacciones_diarias (fecha, id_metodo_pago, monto_total)
+    SELECT  CURDATE() AS fecha,
+			id_metodo_pago,
+			SUM(monto) AS monto_total
+    FROM transacciones
+    WHERE DATE(fecha_transaccion) = CURDATE() - INTERVAL 1 DAY
+    GROUP BY id_metodo_pago;
+END //
+
+DELIMITER ;

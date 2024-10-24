@@ -783,3 +783,492 @@ from
 	ordenes_compra
 join
 	proveedores on proveedores.id_proveedor = ordenes_compra.id_proveedor;
+
+use hocus_pocus;
+
+-- Calcular el total de ventas por empleado y ordenarlas de mayor a menor.
+
+SELECT em.nombres,
+	   COUNT(v.id_venta) AS TotalVentas
+FROM ventas v
+JOIN empleados em ON em.id_empleado = v.id_empleado
+GROUP BY em.nombres
+ORDER BY TotalVentas DESC;
+
+-- Obtener el costo total de ventas online por mes y por año.
+
+SELECT YEAR(fecha_venta) AS Año,
+       MONTH(fecha_venta) AS Mes,
+       SUM(total) AS Costo_Total
+FROM ventas_online
+GROUP BY YEAR(fecha_venta), MONTH(fecha_venta);
+
+-- Identificar proveedores que tienen órdenes de compra pendientes y la fecha de entrega.
+
+SELECT  p.nombre_empresa,
+		o.estado,
+		od.fecha_entrega
+FROM proveedores p
+JOIN ordenes_compra o ON p.id_proveedor = o.id_proveedor
+JOIN detalles_ordenes_compra od ON o.id_orden_compra = od.id_orden_compra
+WHERE o.estado = 'pendiente';
+
+-- Obtener el total de compras a proveedores filtradas por un rango de fechas.
+
+SELECT  p.nombre_empresa,
+		COUNT(o.id_proveedor) AS TotalCompras
+FROM proveedores p
+JOIN ordenes_compra o ON p.id_proveedor = o.id_proveedor
+WHERE o.fecha_orden BETWEEN '2024-03-01' AND '2024-10-01'
+GROUP BY  p.nombre_empresa;
+
+-- Obtener las ventas online totales por mes, incluyendo el descuento aplicado.
+
+SELECT  MONTH(fecha_venta) AS Mes,
+		COUNT(id_venta_online) AS TotalVentas,
+		SUM(descuento) AS TotalDescuentos
+FROM ventas_online
+GROUP BY  MONTH(fecha_venta)
+ORDER BY MONTH(fecha_venta) ASC;
+
+-- Consultar el motivo de devoluciones, agrupadas por fecha de venta.
+
+SELECT 	v.fecha_venta,
+		d.motivo
+FROM ventas v
+JOIN devoluciones d ON v.id_venta = d.id_venta
+ORDER BY v.fecha_venta ASC;
+
+-- Listar las promociones activas y los productos asociados a cada una.
+
+SELECT  p.nombre AS PromoNombre,
+		p.fecha_fin,
+		productos.nombre AS Producto
+FROM promociones p
+JOIN productos_promocion pp ON p.id_promocion = pp.id_promocion
+JOIN productos ON productos.id_producto = pp.id_producto
+WHERE p.fecha_fin >= CURDATE();
+
+-- Consultar los productos con stock bajo y su respectiva categoría.
+
+SELECT  p.nombre AS Producto,
+		c.nombre AS Categoria,
+        i.stock
+FROM productos p
+JOIN inventario i ON i.id_producto = p.id_producto
+JOIN categorias_productos c ON c.id_categoria = p.id_categoria
+WHERE i.stock <= 40;
+
+-- Calcular el total de depósitos de alquileres agrupados por cliente.
+
+SELECT 	c.nombres AS Cliente, 
+		SUM(a.deposito) AS TotalDeposito
+FROM clientes c 
+JOIN alquileres a ON c.id_cliente = a.id_cliente
+GROUP BY c.nombres
+ORDER BY SUM(a.deposito) DESC;
+
+-- Obtener el total de ventas y descuentos aplicados por empleado en un año específico.
+
+SELECT 	e.nombres AS Empleado,
+		COUNT(v.id_venta) AS TotalVentas,
+        SUM(v.descuento) AS TotalDescuentos
+FROM empleados e
+JOIN ventas v ON v.id_empleado = e.id_empleado
+WHERE YEAR(v.fecha_venta) = 2023
+GROUP BY e.nombres
+ORDER BY COUNT(v.id_venta) ASC;
+
+-- Obtener el total de ingresos por cada categoría de productos en un mes determinado.
+
+SELECT  c.nombre AS Categoria,
+		SUM(dv.precio_unitario) AS TotalIngresos
+FROM categorias_productos c 
+JOIN productos p ON p.id_categoria = c.id_categoria
+JOIN detalles_ventas dv ON dv.id_producto = p.id_producto
+JOIN ventas v ON v.id_venta = dv.id_venta
+WHERE MONTH(fecha_venta) = 3
+GROUP BY c.nombre;
+
+-- Consultar el promedio de precios de alquiler de disfraces por género.
+
+SELECT 	p.nombre AS Nombre,
+        ROUND(AVG(precio_alquiler)) AS PromedioAlquiler
+FROM productos p
+JOIN disfraces d ON d.id_producto = p.id_producto
+WHERE d.genero = 'mujer'
+GROUP BY p.nombre;
+
+-- Listar las órdenes de compra y sus detalles, incluyendo el estado y la fecha de entrega estimada.
+
+SELECT  oc.id_orden_compra,
+		oc.estado,
+        doc.fecha_entrega,
+        doc.cantidad
+FROM ordenes_compra oc
+JOIN detalles_ordenes_compra doc ON oc.id_orden_compra = doc.id_orden_compra
+ORDER BY doc.fecha_entrega DESC;
+
+-- Consultar los empleados con el mayor número de ventas y su promedio de ingresos.
+
+SELECT  e.nombres AS Empleados,
+		COUNT(v.id_venta) AS NumeroVentas,
+        ROUND(AVG(e.salario)) AS PromedioSalario
+FROM empleados e
+JOIN ventas v ON v.id_empleado = e.id_empleado
+GROUP BY e.nombres
+ORDER BY NumeroVentas DESC 
+LIMIT 5;
+
+-- Listar las devoluciones realizadas en un rango de fechas y el motivo asociado.
+
+SELECT  id_devolucion,
+		motivo,
+        fecha_devolucion
+FROM devoluciones
+WHERE fecha_devolucion BETWEEN '2023-05-01' AND '2023-10-01'
+ORDER BY fecha_devolucion ASC;
+
+-- Obtener el total de compras a proveedores, filtradas por un tipo de producto.
+
+SELECT  p.nombre_empresa,
+		COUNT(oc.id_orden_compra) AS TotalCompras
+FROM proveedores p
+JOIN ordenes_compra oc ON oc.id_proveedor = p.id_proveedor
+JOIN detalles_ordenes_compra doc ON doc.id_orden_compra = oc.id_orden_compra
+JOIN productos ON productos.id_producto = doc.id_producto
+WHERE productos.nombre LIKE '%disfraz%'
+GROUP BY p.nombre_empresa;
+
+-- Listar las promociones que aun no han caducado y los productos que están en promoción.
+
+SELECT  p.nombre AS Promocion,
+		productos.nombre AS Producto
+FROM promociones p
+JOIN productos_promocion pp ON pp.id_promocion = p.id_promocion
+JOIN productos ON productos.id_producto = pp.id_producto
+WHERE p.fecha_fin > CURDATE();
+
+-- Consultar el promedio de ventas mensuales por empleado.
+
+SELECT  e.nombres AS Empleado,
+		ROUND(AVG(ventasMes.contador)) AS promedioMensual
+FROM(
+	SELECT  v.id_empleado,
+			COUNT(v.id_venta) AS contador
+	FROM ventas v
+    GROUP BY v.id_empleado,
+    MONTH(v.fecha_venta)
+) AS ventasMes
+JOIN empleados e ON ventasMes.id_empleado = e.id_empleado
+GROUP BY e.nombres;
+
+-- Consultar los productos que han sido devueltos, agrupados por categoría.
+
+SELECT  p.nombre AS Producto,
+		c.nombre AS Categoria
+FROM productos p
+JOIN categorias_productos c ON c.id_categoria = p.id_categoria
+JOIN detalles_devoluciones dd ON dd.id_producto = p.id_producto;
+
+-- Listar los métodos de pago más utilizados por los clientes en un periodo determinado.
+
+SELECT  m.nombre AS MetodoPago,
+		COUNT(t.id_metodo_pago) AS VecesUsado
+FROM metodos_pago m
+JOIN transacciones t ON t.id_metodo_pago = m.id_metodo_pago
+WHERE t.fecha_transaccion BETWEEN '2023-05-16' AND '2023-12-07'
+GROUP BY m.nombre
+ORDER BY VecesUsado DESC;
+
+-- Listar los productos que están en promoción, junto con la cantidad en stock.
+
+SELECT  p.nombre AS ProductoPromo,
+		i.stock
+FROM productos p
+JOIN productos_promocion pp ON pp.id_producto = p.id_producto
+JOIN inventario i ON i.id_producto = p.id_producto
+ORDER BY i.stock ASC;
+
+-- Consultar las órdenes de compra que ya han sido entregadas hasta la fecha.
+
+SELECT  oc.id_orden_compra,
+		oc.estado,
+        oc.fecha_orden
+FROM ordenes_compra oc
+WHERE oc.fecha_orden < CURDATE() AND oc.estado = 'entregado';
+
+-- Obtener el total de ingresos generados por cada tipo de tarjeta de pago.
+
+SELECT  ta.tipo_tarjeta,
+		SUM(monto) AS TotalIngresos
+FROM transacciones t
+JOIN metodos_pago m ON m.id_metodo_pago = t.id_metodo_pago
+JOIN ventas v ON v.id_venta = t.id_venta
+JOIN cliente_tarjeta c ON v.id_cliente = c.id_cliente
+JOIN tarjetas ta ON ta.id_tarjeta = c.id_tarjeta
+GROUP BY ta.tipo_tarjeta;
+		
+-- Obtener la lista de disfraces junto con el precio de alquiler y el stock disponible. 
+
+SELECT  p.nombre AS nombre_disfraz, 
+		d.precio_alquiler, 
+		i.stock 
+FROM disfraces d
+JOIN productos p ON d.id_producto = p.id_producto
+JOIN inventario i ON p.id_producto = i.id_producto;
+
+-- Calcular el total de ventas por cliente en un rango de fechas específico.
+
+SELECT  c.nombres AS nombre_cliente,
+		SUM(v.total) AS total_ventas
+FROM ventas v
+JOIN clientes c ON v.id_cliente = c.id_cliente
+WHERE v.fecha_venta BETWEEN '2024-01-01' AND '2024-12-31'
+GROUP BY c.nombres;
+
+-- Consultar los descuentos aplicados en ventas y su impacto en el total de ingresos.
+
+SELECT  v.id_venta,
+		v.total AS total_sin_descuento,
+		v.descuento,
+		(v.total - v.descuento) AS total_con_descuento
+FROM ventas v
+JOIN clientes c ON v.id_cliente = c.id_cliente
+WHERE v.descuento > 0;
+
+-- Obtener el promedio de precios de productos por subcategoría.
+
+SELECT  s.nombre AS nombre_subcategoria,
+		ROUND(AVG(p.precio)) AS promedio_precio
+FROM productos p
+JOIN disfraces d ON p.id_producto = d.id_producto
+JOIN subcategorias_disfraces_accesorios s ON d.id_subcategoria = s.id_subcategoria
+GROUP BY s.nombre;
+
+-- Obtener un resumen del stock de cada producto, agrupado por categoría.
+
+SELECT  c.nombre AS nombre_categoria,
+		p.nombre AS nombre_producto,
+		i.stock AS cantidad_stock
+FROM productos p
+JOIN categorias_productos c ON p.id_categoria = c.id_categoria
+JOIN inventario i ON p.id_producto = i.id_producto;
+
+-- Consultar el total de ingresos generados por cada empleado en un trimestre.
+
+SELECT  e.nombres AS nombre_empleado,
+		SUM(v.total) AS total_ingresos
+FROM ventas v
+JOIN empleados e ON v.id_empleado = e.id_empleado
+WHERE v.fecha_venta BETWEEN '2023-09-01' AND '2023-12-01'  
+GROUP BY e.nombres
+ORDER BY total_ingresos DESC;
+
+-- Listar los productos más rentables basados en el precio de alquiler.
+
+SELECT  p.nombre AS nombre_producto,
+		d.precio_alquiler AS precio_alquiler,
+		(d.precio_alquiler * i.stock) AS rentable
+FROM disfraces d
+JOIN productos p ON d.id_producto = p.id_producto
+JOIN inventario i ON p.id_producto = i.id_producto
+ORDER BY rentable DESC
+LIMIT 10;
+
+-- Obtener el total de ventas por barrio y su impacto en las ganancias.
+
+SELECT  b.nombre AS nombre_barrio,
+		COUNT(v.id_venta) AS total_ventas,
+		SUM(v.total) AS total_ingresos
+FROM ventas v
+JOIN clientes c ON v.id_cliente = c.id_cliente
+JOIN direcciones d ON c.id_cliente = d.id_cliente
+JOIN barrios b ON d.id_barrio = b.id_barrio
+GROUP BY b.nombre
+ORDER BY total_ingresos DESC;
+
+-- Obtener un informe de las ventas online frente a las ventas en tienda física.
+
+SELECT  'Tienda Física' AS tipo_venta,
+		COUNT(v.id_venta) AS total_ventas,
+		SUM(v.total) AS total_ingresos
+FROM ventas v
+GROUP BY tipo_venta
+UNION ALL
+SELECT  'Venta Online' AS tipo_venta,
+		COUNT(vo.id_venta_online) AS total_ventas,
+		SUM(vo.total) AS total_ingresos
+FROM ventas_online vo
+GROUP BY tipo_venta;
+
+-- Obtener la lista de disfraces por género y la cantidad de cada uno.
+
+SELECT  d.genero,
+		COUNT(d.id_disfraz) AS cantidad_disfraces
+FROM disfraces d
+GROUP BY d.genero;
+
+-- 	Consultar el total de transacciones realizadas por cada cliente.
+
+SELECT  c.nombres,
+		COUNT(t.id_transaccion) AS total_transacciones
+FROM clientes c
+JOIN ventas v ON c.id_cliente = v.id_cliente
+JOIN transacciones t ON v.id_venta = t.id_venta
+GROUP BY c.nombres;
+
+-- Listar las órdenes de compra que han sido parcialmente entregadas.
+
+SELECT  oc.fecha_orden,
+		oc.estado,
+		SUM(doc.cantidad) AS cantidad_total
+FROM ordenes_compra oc
+JOIN detalles_ordenes_compra doc ON oc.id_orden_compra = doc.id_orden_compra
+WHERE oc.estado = 'pendiente'
+GROUP BY oc.fecha_orden;
+
+-- Obtener la lista de productos que están en promoción y su fecha de inicio.
+
+SELECT p.nombre AS nombre_producto,
+		pr.nombre AS nombre_promocion,
+		pr.fecha_inicio
+FROM productos p
+JOIN productos_promocion pp ON p.id_producto = pp.id_producto
+JOIN promociones pr ON pp.id_promocion = pr.id_promocion
+WHERE pr.fecha_inicio > CURDATE();
+
+-- Obtener la cantidad total de productos devueltos agrupados por subcategorías.
+
+SELECT  sda.nombre AS nombre_subcategoria,
+		SUM(dd.cantidad) AS total_devueltas
+FROM detalles_devoluciones dd
+JOIN productos p ON dd.id_producto = p.id_producto
+JOIN disfraces d ON p.id_producto = d.id_producto
+JOIN subcategorias_disfraces_accesorios sda ON d.id_subcategoria = sda.id_subcategoria
+GROUP BY sda.nombre;
+
+-- Obtener un informe sobre las decoraciones que han tenido más ventas.
+
+SELECT 	p.nombre AS nombre_producto,
+		SUM(dv.cantidad) AS total_vendido,
+		SUM(dv.precio_unitario * dv.cantidad) AS total_ingresos
+FROM decoraciones d
+JOIN productos p ON d.id_producto = p.id_producto
+JOIN detalles_ventas dv ON p.id_producto = dv.id_producto
+GROUP BY d.id_decoracion, d.tamaño, d.medida, p.nombre
+ORDER BY total_vendido DESC;
+
+-- Obtener la cantidad total de disfraces alquilados en el último año.
+
+SELECT SUM(da.cantidad) AS total_disfraces_alquilados
+FROM alquileres a
+JOIN detalles_alquileres da ON a.id_alquiler = da.id_alquiler
+WHERE a.fecha_inicio >= DATE_SUB(CURDATE(), INTERVAL 1 YEAR);
+
+-- Consultar las tendencias de ventas de disfraces a lo largo del año.
+
+SELECT  MONTH(a.fecha_inicio) AS mes,
+		YEAR(a.fecha_inicio) AS año,
+		SUM(da.cantidad) AS total_disfraces_alquilados
+FROM alquileres a
+JOIN detalles_alquileres AS da ON a.id_alquiler = da.id_alquiler
+WHERE YEAR(a.fecha_inicio) = YEAR(CURDATE())
+GROUP BY MONTH(a.fecha_inicio), YEAR(a.fecha_inicio)
+ORDER BY mes ASC;
+
+-- Listar los productos con el mayor margen de beneficio.
+
+SELECT  p.nombre AS producto,
+		d.precio_alquiler,
+		i.stock,
+		(d.precio_alquiler - p.precio) AS beneficio
+FROM productos p
+JOIN disfraces d ON p.id_producto = d.id_producto
+JOIN inventario i ON p.id_producto = i.id_producto
+ORDER BY beneficio DESC
+LIMIT 10;
+
+-- Obtener la lista de clientes que han usado cupones de descuento.
+
+SELECT  c.nombres,
+		v.descuento
+FROM clientes c
+JOIN ventas v ON c.id_cliente = v.id_cliente;
+
+-- Obtener un resumen de las ventas por tipo de decoración.
+
+SELECT td.nombre AS tipo_decoracion,
+		SUM(dv.cantidad) AS total_vendido,
+		SUM(dv.precio_unitario * dv.cantidad) AS ingresos
+FROM detalles_ventas dv
+JOIN productos p ON dv.id_producto = p.id_producto
+JOIN decoraciones d ON p.id_producto = d.id_producto
+JOIN tipos_decoracion td ON d.id_tipos_decoracion = td.id_tipos_decoracion
+GROUP BY td.nombre
+ORDER BY ingresos DESC;
+
+-- Consultar los clientes que han realizado compras recurrentes.
+
+SELECT  c.nombres,
+		COUNT(v.id_venta) AS cantidad_compras
+FROM clientes c
+JOIN ventas v ON c.id_cliente = v.id_cliente
+GROUP BY c.nombres
+ORDER BY cantidad_compras DESC;
+
+-- Listar las devoluciones por categoría de producto.
+
+SELECT  cp.nombre AS categoria,
+		COUNT(dd.id_detalles_devoluciones) AS cantidad_devoluciones
+FROM detalles_devoluciones dd
+JOIN productos p ON dd.id_producto = p.id_producto
+JOIN categorias_productos cp ON p.id_categoria = cp.id_categoria
+GROUP BY cp.nombre;
+
+-- Consultar la frecuencia de uso de cada tipo de accesorio en las ventas.
+
+SELECT  t.nombre,
+		COUNT(dv.id_producto) AS cantidad_vendida
+FROM detalles_ventas dv
+JOIN productos p ON p.id_producto = dv.id_producto
+JOIN accesorios a ON a.id_producto = p.id_producto
+JOIN tipos_accesorios t ON t.id_tipo_accesorio = a.id_tipo_accesorio
+GROUP BY t.nombre
+ORDER BY cantidad_vendida DESC;
+
+-- Obtener un resumen de las ventas por subcategoría y su crecimiento respecto al mes anterior.
+
+SELECT s.nombre AS subcategoria,
+       SUM(v.total) AS total_ventas,
+       MONTH(v.fecha_venta) AS mes
+FROM subcategorias_disfraces_accesorios s
+JOIN disfraces d ON s.id_subcategoria = d.id_subcategoria
+JOIN detalles_ventas dv ON d.id_producto = dv.id_producto
+JOIN ventas v ON dv.id_venta = v.id_venta
+GROUP BY s.nombre, MONTH(v.fecha_venta);
+
+-- Consultar el total de ventas por tallas 
+
+SELECT d.talla, COUNT(v.id_venta) AS total_ventas
+FROM disfraces d
+JOIN detalles_ventas dv ON d.id_producto = dv.id_producto
+JOIN ventas v ON dv.id_venta = v.id_venta
+GROUP BY d.talla;
+
+-- Obtener un resumen de las devoluciones por tipo de producto y su total en un periodo específico.
+
+SELECT p.nombre AS producto, COUNT(dv.id_detalles_devoluciones) AS total_devoluciones
+FROM productos p
+JOIN detalles_devoluciones dv ON p.id_producto = dv.id_producto
+JOIN devoluciones d ON dv.id_devolucion = d.id_devolucion
+WHERE d.fecha_devolucion BETWEEN '2023-02-06' AND '2023-05-16'  
+GROUP BY p.nombre;
+
+-- Obtener un resumen de los costos operativos mensuales.
+
+SELECT MONTH(fecha_venta) AS mes,
+		SUM(total) AS total_ventas
+FROM ventas
+GROUP BY mes
+ORDER BY mes;

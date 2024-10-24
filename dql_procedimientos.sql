@@ -204,3 +204,186 @@ DELIMITER ;
 
 call registrar_transaccion(1, 2, 100.00, '2024-10-23');
 
+use hocus_pocus;
+
+SET SQL_SAFE_UPDATES = 0; 
+-- Actualizar el stock de un producto en la tabla inventario.
+
+DELIMITER //
+CREATE PROCEDURE ActualizarStock(IN ingreso_Id_Producto INT, IN NewStock INT)
+BEGIN
+    UPDATE inventario
+    SET stock = NewStock
+    WHERE id_producto = ingreso_Id_Producto;
+END //
+DELIMITER ;
+
+CALL ActualizarStock(1, 98);
+
+-- Registrar una nueva venta en la tabla ventas y sus detalles en detalles_ventas.
+
+DELIMITER //
+
+CREATE PROCEDURE RegistrarVenta(IN id_cliente INT,IN id_empleado INT,IN fecha_venta DATE,IN descuento DECIMAL(10,2),IN total DECIMAL(10,2),IN id_producto INT,IN cantidad INT, IN precio_unitario DECIMAL(10,2))
+BEGIN
+    INSERT INTO ventas (id_cliente, id_empleado, fecha_venta, descuento, total)
+    VALUES (id_cliente, id_empleado, fecha_venta, descuento, total);
+
+    INSERT INTO detalles_ventas (id_venta, id_producto, cantidad, precio_unitario)
+    VALUES (LAST_INSERT_ID(), id_producto, cantidad, precio_unitario);
+END //
+
+DELIMITER ;
+
+CALL RegistrarVenta(1, 2, '2024-10-23', 10.000, 50.000, 1, 2, 25.000);
+
+-- Listar todos los disfraces disponibles por talla y género.
+
+DELIMITER //
+
+CREATE PROCEDURE ListarDisfraces()
+BEGIN
+    SELECT p.nombre, talla, genero
+    FROM disfraces d
+    JOIN productos p ON d.id_producto = p.id_producto
+    ORDER BY genero, talla;
+END //
+
+DELIMITER ;
+
+CALL ListarDisfraces();
+
+-- Actualizar el estado de una orden de compra en la tabla ordenes_compra.
+
+DELIMITER //
+
+CREATE PROCEDURE ActualizarEstadoOrden(IN ingreso_id_orden INT,IN nuevo_estado VARCHAR(50))
+BEGIN
+    UPDATE ordenes_compra
+    SET estado = nuevo_estado
+    WHERE id_orden_compra = ingreso_id_orden;
+END //
+
+DELIMITER ;
+
+CALL ActualizarEstadoOrden(1, 'entregado');
+
+-- Generar un informe de las promociones activas en la tabla promociones.
+
+DELIMITER //
+
+CREATE PROCEDURE InformePromocionesActivas()
+BEGIN
+	DECLARE Mensaje VARCHAR(100);
+    DECLARE Contador INT;
+      SELECT COUNT(id_promocion) INTO Contador
+    FROM promociones
+    WHERE CURDATE() BETWEEN fecha_inicio AND fecha_fin;
+
+    IF Contador = 0 THEN
+        SET Mensaje = 'No hay promociones activas :C';
+        SELECT Mensaje AS Resultado;
+    ELSE
+        SELECT nombre_promocion, descripcion, fecha_inicio, fecha_fin
+        FROM promociones
+        WHERE CURDATE() BETWEEN fecha_inicio AND fecha_fin;
+    END IF;
+END //
+
+DELIMITER ;
+
+CALL InformePromocionesActivas();
+
+-- Calcular el monto total de las transacciones realizadas con un método de pago específico.
+
+DELIMITER //
+
+CREATE PROCEDURE CalcularTotalPorMetodoPago(IN metodo_pago_id INT)
+BEGIN
+    DECLARE Total DECIMAL(10, 2);
+
+    SELECT SUM(monto) INTO Total
+    FROM  transacciones
+    WHERE id_metodo_pago = metodo_pago_id;
+
+    SELECT Total AS 'Monto Total';
+END //
+
+DELIMITER ;
+
+CALL CalcularTotalPorMetodoPago(1); 
+
+-- Listar todos los métodos de pago y su frecuencia de uso.
+
+DELIMITER //
+
+CREATE PROCEDURE ListarFrecuenciaMetodosPago()
+BEGIN
+    SELECT  mp.nombre, 
+			COUNT(t.id_venta) AS FrecuenciaUso
+    FROM metodos_pago mp
+    JOIN transacciones t ON mp.id_metodo_pago = t.id_metodo_pago
+    GROUP BY mp.nombre
+    ORDER BY FrecuenciaUso DESC;
+END //
+
+DELIMITER ;
+
+CALL ListarFrecuenciaMetodosPago();
+
+-- Actualizar la información de un empleado en la tabla empleados.
+
+DELIMITER //
+
+CREATE PROCEDURE ActualizarEmpleado(IN Ingreso_IdEmpleado INT,IN NuevoNombre VARCHAR(100),IN NuevoApellido VARCHAR(100), IN NuevaFecha DATE, IN NuevoEmail VARCHAR(100),IN NuevoTelefono VARCHAR(20),
+									IN NuevaContratacion DATE, IN NuevoRol VARCHAR(100), IN NuevoSalario DECIMAL(10,2))
+BEGIN
+    UPDATE empleados
+    SET nombres = NuevoNombre,
+        apellidos = NuevoApellido,
+        fecha_nacimiento = NuevaFecha,
+        email = NuevoEmail,
+        telefono = NuevoTelefono,
+        fecha_contratacion = NuevaContratacion,
+		rol= NuevoRol,
+        salario = NuevoSalario
+    WHERE id_empleado = Ingreso_IdEmpleado;
+END //
+
+DELIMITER ;
+
+CALL ActualizarEmpleado(1, 'Juan', 'Pérez', '2002-03-18','juan.perez@email.com', '3187965482', '2024-08-02', 'vendedor', 150.000);
+
+-- Consultar los ingresos generados por alquileres de disfraces en un rango de fechas.
+
+DELIMITER //
+
+CREATE PROCEDURE IngresosPorAlquiler(IN FechaInicio DATE, IN FechaFin DATE)
+BEGIN
+    SELECT SUM(total) AS IngresosTotales
+    FROM alquileres
+    WHERE fecha_inicio BETWEEN FechaInicio AND FechaFin;
+END //
+
+DELIMITER ;
+
+CALL IngresosPorAlquiler('2024-01-01', '2024-12-31');
+
+-- Generar un informe de las ciudades donde se encuentran los clientes.
+
+DELIMITER //
+
+CREATE PROCEDURE InformeCiudadesClientes()
+BEGIN
+    SELECT city.nombre, COUNT(c.id_cliente) AS CantidadClientes
+    FROM clientes c
+    JOIN direcciones d ON d.id_cliente = c.id_cliente
+    JOIN barrios b ON b.id_barrio = d.id_barrio
+    JOIN ciudades city ON city.id_ciudad = b.id_ciudad
+    GROUP BY city.nombre
+    ORDER BY CantidadClientes DESC;
+END //
+
+DELIMITER ;
+
+CALL InformeCiudadesClientes();

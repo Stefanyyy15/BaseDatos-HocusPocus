@@ -170,3 +170,135 @@ begin
     end if;
 end //
 DELIMITER ;
+
+-- Trigger para calcular el monto total de una transacción
+
+DELIMITER //
+
+CREATE TRIGGER calcular_monto_total_transaccion
+BEFORE INSERT ON transacciones
+FOR EACH ROW
+BEGIN
+    DECLARE monto_total DECIMAL(10, 2);
+    SELECT SUM(d.cantidad * d.precio_unitario) INTO monto_total
+    FROM detalles_ventas d
+    WHERE d.id_venta = NEW.id_venta;
+    SET NEW.monto = monto_total;
+END //
+
+DELIMITER ;
+
+-- Trigger para actualizar el total en alquileres
+
+DELIMITER //
+
+CREATE TRIGGER actualizar_total_alquiler
+BEFORE INSERT ON alquileres
+FOR EACH ROW
+BEGIN
+    DECLARE dias_alquiler INT;
+    SET dias_alquiler = DATEDIFF(NEW.fecha_fin, NEW.fecha_inicio);
+    SET NEW.total = dias_alquiler * 30.000;
+END //
+
+DELIMITER ;
+
+-- Trigger para actualizar el stock al eliminar un producto de venta
+
+DELIMITER //
+
+CREATE TRIGGER actualizar_stock_al_eliminar_detalle_venta
+BEFORE DELETE ON detalles_ventas
+FOR EACH ROW
+BEGIN
+    UPDATE inventario
+    SET stock = stock + OLD.cantidad
+    WHERE id_producto = OLD.id_producto;
+END //
+
+DELIMITER ;
+
+-- Trigger para calcular el total de una venta
+
+DELIMITER //
+
+CREATE TRIGGER calcular_total_venta
+BEFORE INSERT ON ventas
+FOR EACH ROW
+BEGIN
+    DECLARE total DECIMAL(10, 2);
+    SELECT SUM(d.cantidad * d.precio_unitario) INTO total
+    FROM detalles_ventas d
+    WHERE d.id_venta = NEW.id_venta;
+    SET NEW.total = total;
+END //
+
+DELIMITER ; 
+
+-- Trigger para eliminar los detalles de la venta al eliminar la venta.
+
+DELIMITER //
+
+CREATE TRIGGER eliminar_detalles_venta
+BEFORE DELETE ON ventas
+FOR EACH ROW
+BEGIN
+    DELETE FROM detalles_ventas
+    WHERE id_venta = OLD.id_venta;
+END //
+
+DELIMITER ;
+
+-- Trigger para asegurarse de que el stock nunca sea negativo 
+
+DELIMITER //
+
+CREATE TRIGGER verificar_stock_negativo
+BEFORE UPDATE ON inventario
+FOR EACH ROW
+BEGIN
+    IF (NEW.stock < 0) THEN
+        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'El stock no puede ser negativo';
+    END IF;
+END //
+
+DELIMITER ;
+
+-- Trigger para evitar crear un usuario con un email ya existente
+
+DELIMITER //
+
+CREATE TRIGGER verificar_email_existente
+BEFORE INSERT ON usuarios
+FOR EACH ROW
+BEGIN
+    DECLARE email_count INT;
+    SELECT COUNT(*)
+    INTO email_count
+    FROM usuarios
+    WHERE correo = NEW.correo;
+    IF email_count > 0 THEN
+        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'El correo electrónico ya está registrado';
+    END IF;
+END //
+
+DELIMITER ;
+
+-- Trigger para actualizar el total de la factura
+
+DELIMITER //
+
+CREATE TRIGGER actualizar_total_factura
+AFTER INSERT ON detalles_ventas
+FOR EACH ROW
+BEGIN
+    DECLARE nuevo_total DECIMAL(10, 2);
+    SELECT SUM(d.cantidad * d.precio_unitario) INTO nuevo_total
+    FROM detalles_ventas d
+    WHERE d.id_venta = NEW.id_venta;
+    UPDATE facturacion
+    SET total = nuevo_total
+    WHERE id_venta = NEW.id_venta;
+END //
+
+DELIMITER ;

@@ -314,3 +314,11 @@ create table if not exists detalles_devoluciones( -- s
     foreign key (id_devolucion) references devoluciones (id_devolucion),
     foreign key (id_producto) references productos (id_producto)
 );
+
+CREATE TABLE IF NOT EXISTS resumen_transacciones_diarias (
+    id_resumen INT PRIMARY KEY AUTO_INCREMENT,
+    fecha DATE NOT NULL,
+    id_metodo_pago INT,
+    monto_total DECIMAL(10, 2) NOT NULL,
+    FOREIGN KEY (id_metodo_pago) REFERENCES metodos_pago(id_metodo_pago)
+);
