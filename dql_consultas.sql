@@ -178,7 +178,7 @@ where
 group by
     metodos_pago.id_metodo_pago, metodos_pago.nombre
 order by
-    cantidad_transacciones desc;
+    transacciones desc;
     
 -- 25. Obtener la cantidad de productos en inventario por subcategoría y su precio promedio.
 
@@ -370,8 +370,8 @@ Limit 1000;
 
 select
     productos.nombre,
-    sum(dv.cantidad) as total_vendido,
-    year(v.fecha_venta) as año
+    sum(detalles_ventas.cantidad) as total_vendido,
+    year(ventas.fecha_venta) as año
 from
     productos
 join
@@ -585,18 +585,27 @@ group by
     
 -- 77. promedio de alquileres por cliente en una fecha determinada
 
+with alquileres_por_cliente as (
+    select
+        clientes.nombres,
+        count(alquileres.id_alquiler) as total_alquileres
+    from
+        clientes
+    left join
+        alquileres on clientes.id_cliente = alquileres.id_cliente
+    where
+        alquileres.fecha_inicio between '2023-01-01' and '2023-12-31'
+    group by
+        clientes.id_cliente
+)
+
 select
-    clientes.nombres,
-    count(alquileres.id_alquiler) as total_alquileres,
+    nombres,
+    total_alquileres,
     avg(total_alquileres) over () as promedio_alquileres
 from
-    clientes
-left join
-    alquileres on clientes.id_cliente = alquileres.id_cliente
-where
-    alquileres.fecha_inicio between '2023-01-01' and '2023-12-31'
-group by
-    clientes.id_cliente;
+    alquileres_por_cliente;
+
     
 -- 79. Consultar los detalles de las ventas realizadas por un empleado específico.
 
